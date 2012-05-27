@@ -1,0 +1,18 @@
+package main;
+global java.util.List list
+
+rule "Regla1"
+    dialect "java"
+    when
+        Car( brand == "Ford")
+    then
+        System.out.println("Regla1Activada");
+end
+
+rule "Regla2"
+    dialect "java"
+    when
+        Car( brand == "Fiat")
+    then
+        System.out.println("Regla2Activada");
+end
