@@ -9,8 +9,6 @@ import org.drools.builder.KnowledgeBuilder;
 import org.drools.builder.KnowledgeBuilderFactory;
 import org.drools.builder.ResourceType;
 import org.drools.definition.KnowledgePackage;
-import org.drools.event.rule.DebugAgendaEventListener;
-import org.drools.event.rule.DebugWorkingMemoryEventListener;
 import org.drools.io.ResourceFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 
@@ -35,8 +33,8 @@ public class Main {
 		final StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
 		ksession.setGlobal( "list",new ArrayList<Object>() );
 
-		ksession.addEventListener( new DebugAgendaEventListener() );
-		ksession.addEventListener( new DebugWorkingMemoryEventListener() );
+		//ksession.addEventListener( new DebugAgendaEventListener() );
+		//ksession.addEventListener( new DebugWorkingMemoryEventListener() );
 
 		final Car car = new Car();
 		car.setBrand( "Fiat" );
