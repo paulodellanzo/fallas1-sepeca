@@ -16,7 +16,6 @@
 	<classpathentry kind="lib" path="lib/drools-persistence-jpa-5.4.0.Final.jar"/>
 	<classpathentry kind="lib" path="lib/drools-templates-5.4.0.Final.jar"/>
 	<classpathentry kind="lib" path="lib/drools-verifier-5.4.0.Final.jar"/>
-	<classpathentry kind="lib" path="lib/droolsjbpm-introduction-docs-5.4.0.Final.jdocbook"/>
 	<classpathentry kind="lib" path="lib/ecj-3.5.1.jar"/>
 	<classpathentry kind="lib" path="lib/guava-r06.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
