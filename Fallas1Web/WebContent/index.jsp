@@ -8,6 +8,8 @@
     	<link rel="stylesheet" type="text/css" href="index.css"/>
     	<script src="jquery.js"></script>
     	<script src="functions.js"></script>
+    	<link rel="stylesheet" href="css/anythingslider.css">
+		<script src="js/jquery.anythingslider.js"></script>
     	<title>SEPECA</title>
   </head>
   <body>
@@ -29,10 +31,8 @@
    		
    		
    		<div id="result">  
-   		Acá va el resultado
-   		<img src="9728_20111201065634.jpg">
-   		</img>
-   		
+   			Resultado
+   			   		
    		</div>
    
    	</div>

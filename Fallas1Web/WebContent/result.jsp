@@ -9,11 +9,62 @@
 	for(int i=0;i<attributeListSize;i++){
 		String parameter = attributeList.get(i).getName();
 		String value = request.getParameter(parameter);
-		out.println(parameter+" = "+value);
+		//out.println(parameter+" = "+value);
 			
 	}
 	
 	RulesManager rulesManager = new RulesManager();
-	out.println("Auto: "+rulesManager.getBestCar().getBrand());
+	//out.println("Auto: "+rulesManager.getBestCar().getBrand());
 	
 %> 
+
+   		<ul id="slider">
+   			<li class="car">
+   				
+   		   		
+   				<div class="image">
+   				<img src="9728_20111201065634.jpg">
+   				</div>
+   		   		<div class="description">
+   		   			aaaa
+   		   		
+   		   		</div>
+   				
+   			</li>
+
+   			<li class="car">
+   				
+   		   		
+   				<div class="image">
+   				<img src="9680_20111108102412.jpg">
+   				</div>
+   				<div class="description">
+   		   			bbbbb
+   		   		</div>
+   		   		
+   				
+   			</li>
+
+   			<li class="car">
+   				
+   				<div class="image">
+   				<img src="8799_20110921150453.jpg">
+   				</div>
+   				<div class="description">
+   					cccccc
+   				</div>
+   			</li>
+		</ul>
+		
+<script>
+$(function(){
+	$('#slider').anythingSlider({
+		 resizeContents      : true, 
+		 buildArrows         : true,
+		 buildNavigation     : true,
+		 hashTags			 : false,
+		 startText           : "Correr", 
+		 stopText            : "Parar"
+	});
+});
+</script>		
