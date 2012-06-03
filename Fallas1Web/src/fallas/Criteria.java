@@ -32,12 +32,14 @@ public class Criteria {
 		for(int i=0;i<listSize;i++){
 			html=html.concat("<div class=\"attribute\">");
 			html=html.concat("<a>"+attributeList.get(i).getName()+"</a>");
-			html=html.concat("<select name=\""+attributeList.get(i).getName()+"\">");
+			html=html.concat("<div class=\"divselect\">");
+			html=html.concat("<select class=\"select\" name=\""+attributeList.get(i).getName()+"\">");
 			int attListSize = attributeList.get(i).getOptionsList().size();
 			for(int j=0;j<attListSize;j++){
 				html=html.concat("<option value=\""+attributeList.get(i).getValueList().get(j)+"\">"+attributeList.get(i).getOptionsList().get(j)+"</option>");	
 			}
 			html=html.concat("</select>");
+			html=html.concat("</div>");
 			html=html.concat("</div>");
 		}
 		return html;
