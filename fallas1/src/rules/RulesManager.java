@@ -1,4 +1,4 @@
-package main;
+package rules;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,28 +13,26 @@ import org.drools.io.ResourceFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 
 
-public class Main {
+public class RulesManager {
 
-
-	public static void main(String[] args) {
-
+	private KnowledgeBase knowledgeBase;
+	
+	
+	public RulesManager(){
 		final KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
 		kbuilder.add( ResourceFactory.newClassPathResource( "Car.drl",Car.class ),ResourceType.DRL );
-
 		if ( kbuilder.hasErrors() ) {
 			throw new RuntimeException( "Unable to compile \"Car.drl\"." );
 		}
-		
 		final Collection<KnowledgePackage> pkgs = kbuilder.getKnowledgePackages();
-
-		final KnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase();
-		kbase.addKnowledgePackages( pkgs );
-
-		final StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
+		knowledgeBase = KnowledgeBaseFactory.newKnowledgeBase();
+		knowledgeBase.addKnowledgePackages( pkgs );
+		
+	}
+	
+	public Car getBestCar(){
+		final StatefulKnowledgeSession ksession = knowledgeBase.newStatefulKnowledgeSession();
 		ksession.setGlobal( "list",new ArrayList<Object>() );
-
-		//ksession.addEventListener( new DebugAgendaEventListener() );
-		//ksession.addEventListener( new DebugWorkingMemoryEventListener() );
 
 		final Car car = new Car();
 		car.setBrand( "Fiat" );
@@ -43,12 +41,12 @@ public class Main {
 		final Car car2 = new Car();
 		car2.setBrand( "Ford" );
 		car2.setModel("Fiesta");
-		
 		ksession.insert(car);
 		ksession.insert(car2);
 		ksession.fireAllRules();
 		ksession.dispose();
-
+		return car;
+		
 	}
 
 }

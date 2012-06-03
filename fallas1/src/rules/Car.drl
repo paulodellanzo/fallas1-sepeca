@@ -1,4 +1,4 @@
-package main;
+package rules;
 global java.util.List list
 
 rule "Regla1"
