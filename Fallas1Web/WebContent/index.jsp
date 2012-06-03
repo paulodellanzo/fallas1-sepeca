@@ -30,6 +30,9 @@
    		
    		<div id="result">  
    		Acá va el resultado
+   		<img src="9728_20111201065634.jpg">
+   		</img>
+   		
    		</div>
    
    	</div>

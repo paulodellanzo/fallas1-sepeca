@@ -3,6 +3,7 @@
 	<name>Fallas1Web</name>
 	<comment></comment>
 	<projects>
+		<project>fallas1</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
