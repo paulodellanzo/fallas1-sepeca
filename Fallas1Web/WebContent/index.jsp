@@ -25,13 +25,16 @@
 		out.println(criteria.getHTML());
    		%> 
    		<button id="submit" type="button" onClick="getResult()">
-   		Obtener auto
+   		Mostrar autos recomendados
    		</button>
    		</div>
    		
    		
    		<div id="result">  
-   			Resultado
+   			<p class="message">
+   			Contestar las preguntas y presionar el botón "Mostrar autos recomendados"
+   			</p>
+   			
    			   		
    		</div>
    

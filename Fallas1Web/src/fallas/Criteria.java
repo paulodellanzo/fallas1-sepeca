@@ -8,7 +8,7 @@ public class Criteria {
 	ArrayList<Attribute> attributeList = new ArrayList<Attribute>();
 	
 	public Criteria(){
-		Attribute attribute=new Attribute("Precio","¿Para qué utilizará el auto?");
+		Attribute attribute=new Attribute("Uso","¿Para qué utilizará el auto?");
 		attribute.addOption("",1);
 		attribute.addOption("Para ir a trabajar",2);
 		attribute.addOption("Para salidas los fines de semana",3);
