@@ -7,12 +7,14 @@ public class Attribute {
 	private String name;
 	ArrayList<String> optionList = new ArrayList<String>();
 	ArrayList<Integer> valueList = new ArrayList<Integer>();
+	private String description;
 	
 	public Attribute(){
 	}
 	
-	public Attribute(String name){
+	public Attribute(String name,String description){
 		this.name=name;
+		this.description=description;
 		
 	}
 	
@@ -35,6 +37,11 @@ public class Attribute {
 	
 	public String getName(){
 		return this.name;
+	}
+
+	public String getDescription() {
+		
+		return this.description;
 	}
 	
 	
