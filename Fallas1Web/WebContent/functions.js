@@ -13,5 +13,6 @@ function getResult(){
 		}
 		parametros=parametros+criteria[i].name+"="+criteria[i][criteria[i].selectedIndex].value;
 	}
+	
 	$('#result').load('result.jsp'+parametros);
 }

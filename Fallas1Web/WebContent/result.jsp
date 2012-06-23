@@ -6,14 +6,14 @@
 	ArrayList<Attribute> attributeList = criteria.getAttributeList();	
 	int attributeListSize =  attributeList.size();
 	
-	for(int i=0;i<attributeListSize;i++){
+/* 	for(int i=0;i<attributeListSize;i++){
 		String parameter = attributeList.get(i).getName();
 		String value = request.getParameter(parameter);
 		//out.println(parameter+" = "+value);
 			
 	}
 	
-	RulesManager rulesManager = new RulesManager();
+	RulesManager rulesManager = new RulesManager(); */
 	//out.println("Auto: "+rulesManager.getBestCar().getBrand());
 	
 %> 
