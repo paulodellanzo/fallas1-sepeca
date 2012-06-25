@@ -1,13 +1,10 @@
 
 function getResult(){
 	
+	result = document.getElementById('result').innerHTML ='<p class="message">Procesando consulta...</p>';
 
-	result = document.getElementById('result').innerHTML ='<p class=%22message%22>Procesando consulta...</p>';
-
-	
 	var criteria = document.getElementById('criteria').getElementsByTagName('select');
 	var parametros = "";
-	
 	
 	
 	for(var i=0;i<criteria.length;i++){

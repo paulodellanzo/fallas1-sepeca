@@ -26,23 +26,27 @@
 	%>
 	<ul id="slider">
 	<%
-	for (int i=0;i<10;i++){
+	for (Car car:cars){
 		%>
-		   			<li class="car">
-   				
-   		   		
-   				<div class="image">
-   				<img src="9728_20111201065634.jpg">
-   				</div>
-   		   		<div class="description">
-   		   			aaaa
-   		   		
-   		   		</div>
-   				
-   			</li>
-		
+		<li class="car"> 		
+   			<div class="image">
+   		<%
+   			out.println("<img src=\"carimages/"+car.getFoto()+"\">");
+   		%> 		
+   			</div>
+   		   	<div class="description">
+   		<%
+   			out.println("Marca: "+car.getMarca());
+   			out.println("<br/>");
+   			out.println("Modelo: "+car.getModelo());
+   			out.println("<br/>");
+   			out.println("Versión: "+car.getVersion());
+   			out.println("<br/>");
+   			out.println("Precio: "+Integer.toString(car.getPrecio()));
+   		%> 	   			
+   		   	</div>		
+   		</li>
 		<%
-		
 	}
 	
 	
