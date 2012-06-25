@@ -2,6 +2,7 @@ package rules;
 
 public class Car {
 
+	private int selected;
 	private int id;
 	private String marca;
 	private String modelo;
@@ -54,7 +55,7 @@ public class Car {
 	
 	public Car(String[] characteristics) {
 		id=Integer.parseInt(characteristics[0].trim());
-		
+		selected=0;
 		marca=characteristics[1];
 		
 		modelo=characteristics[2];
@@ -836,6 +837,14 @@ public class Car {
 
 	public void setTransmision(int transmision) {
 		this.transmision = transmision;
+	}
+	
+	public int getSelected() {
+		return selected;
+	}
+
+	public void setSelected(int selected) {
+		this.selected = selected;
 	}
 }
     

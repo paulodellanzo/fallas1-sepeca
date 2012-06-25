@@ -4,9 +4,9 @@ global java.util.List list
 rule "Regla1"
     dialect "java"
     when
-        Car (version == "1")
+        c: Car (frenos == 5)
     then
-        System.out.println("Regla1Activada");
+        c.selected=1;
 end
 
 rule "Regla2"

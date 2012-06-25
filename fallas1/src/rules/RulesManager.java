@@ -43,9 +43,11 @@ public class RulesManager {
 		ksession.fireAllRules();
 		ksession.dispose();
 		
+		
 		ArrayList<Car> resultCar = new ArrayList<Car>();
-		for(int i=0;i<20;i++)
-			resultCar.add(cars.get(i));
+		for(Car car:cars)
+			if(car.getSelected()==1)
+				resultCar.add(car);
 		
 		return resultCar;
 		
