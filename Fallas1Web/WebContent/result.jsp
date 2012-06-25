@@ -5,18 +5,30 @@
 	Criteria criteria = new Criteria();
 	ArrayList<Attribute> attributeList = criteria.getAttributeList();	
 	int attributeListSize =  attributeList.size();
+	ArrayList<Attribute> inputAttributes = new ArrayList<Attribute>();
 	
-/* 	for(int i=0;i<attributeListSize;i++){
+	
+	for(int i=0;i<attributeListSize;i++){
 		String parameter = attributeList.get(i).getName();
 		String value = request.getParameter(parameter);
-		//out.println(parameter+" = "+value);
-			
+		Attribute attribute = new Attribute(parameter,Integer.parseInt(value));	
+		inputAttributes.add(attribute);
+		
 	}
 	
-	RulesManager rulesManager = new RulesManager(); */
-	//out.println("Auto: "+rulesManager.getBestCar().getBrand());
+	
+	for(Attribute att : inputAttributes){
+		out.println(att.getName()+" : "+att.getValue());
+	}
+	
+	
+	RulesManager rulesManager = new RulesManager();
+	ArrayList<Car> cars = rulesManager.getBestCars(inputAttributes);
+	out.println("Size:"+cars.size());
 	
 %> 
+
+
 
    		<ul id="slider">
    			<li class="car">

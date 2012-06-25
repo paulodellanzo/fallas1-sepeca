@@ -2,6 +2,8 @@ package fallas;
 
 import java.util.ArrayList;
 
+import rules.Attribute;
+
 
 public class Criteria {
 
