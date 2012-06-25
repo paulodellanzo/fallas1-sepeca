@@ -1,18 +1,11 @@
 package rules;
 global java.util.List list
 
-rule "Regla1"
-    dialect "java"
+rule "Regla2"
+    dialect "mvel"
     when
+        a: Attribute (name == "Uso" && value == 3 )
         c: Car (frenos == 5)
     then
-        c.selected=1;
-end
-
-rule "Regla2"
-    dialect "java"
-    when
-        Car(version == "2")
-    then
-        System.out.println("Regla2Activada");
+        c.selected = 1;
 end
