@@ -14,6 +14,8 @@ public class CarLoader {
 		BufferedReader reader= null;
 		
 		try {
+			//URL url = ClassLoader.getSystemResource("base") ;   
+			//URI uri = new URI(url.toString());   
 			file=new File("base");
 			fr=new FileReader(file);
 			reader = new BufferedReader(fr);
@@ -29,7 +31,7 @@ public class CarLoader {
 		} catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		} 
 		
 		return autos;
 		

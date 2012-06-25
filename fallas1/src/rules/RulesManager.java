@@ -17,7 +17,6 @@ public class RulesManager {
 
 	private KnowledgeBase knowledgeBase;
 	
-	
 	public RulesManager(){
 		final KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
 		kbuilder.add( ResourceFactory.newClassPathResource( "Car.drl",Car.class ),ResourceType.DRL );
@@ -30,10 +29,14 @@ public class RulesManager {
 		
 	}
 	
-	public Car getBestCar(){
+	public ArrayList<Car> getBestCars(ArrayList<Attribute> attributes){
 		final StatefulKnowledgeSession ksession = knowledgeBase.newStatefulKnowledgeSession();
 		ksession.setGlobal( "list",new ArrayList<Object>() );
-
+		ArrayList<Car> cars = (ArrayList<Car>) CarLoader.loadFile();
+		
+		//for(Car car: cars)
+			//ksession.insert(car);
+		
 //		final Car car = new Car();
 //		car.setBrand( "Fiat" );
 //		car.setModel("Palio");
@@ -46,7 +49,7 @@ public class RulesManager {
 //		ksession.fireAllRules();
 //		ksession.dispose();
 //		return car;
-		return null;
+		return cars;
 		
 	}
 

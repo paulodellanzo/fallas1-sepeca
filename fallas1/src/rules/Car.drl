@@ -4,7 +4,7 @@ global java.util.List list
 rule "Regla1"
     dialect "java"
     when
-        Car( brand == "Ford")
+        Car (version == "1")
     then
         System.out.println("Regla1Activada");
 end
@@ -12,7 +12,7 @@ end
 rule "Regla2"
     dialect "java"
     when
-        Car( brand == "Fiat")
+        Car(version == "2")
     then
         System.out.println("Regla2Activada");
 end

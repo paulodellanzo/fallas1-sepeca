@@ -48,6 +48,10 @@ public class Car {
 	private int capacidadCarga;
 	private int transmision;
 
+	public Car(){
+		
+	}
+	
 	public Car(String[] characteristics) {
 		id=Integer.parseInt(characteristics[0].trim());
 		
