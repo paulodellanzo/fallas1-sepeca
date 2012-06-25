@@ -16,10 +16,6 @@
 		
 	}
 	
-	for(Attribute att : inputAttributes){
-		out.println(att.getName()+" : "+att.getValue());
-	}
-	
 	RulesManager rulesManager = new RulesManager();
 	ArrayList<Car> cars = rulesManager.getBestCars(inputAttributes);
 	
