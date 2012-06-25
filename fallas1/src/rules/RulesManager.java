@@ -34,21 +34,10 @@ public class RulesManager {
 		ksession.setGlobal( "list",new ArrayList<Object>() );
 		ArrayList<Car> cars = (ArrayList<Car>) CarLoader.loadFile();
 		
-		//for(Car car: cars)
-			//ksession.insert(car);
-		
-//		final Car car = new Car();
-//		car.setBrand( "Fiat" );
-//		car.setModel("Palio");
-//		
-//		final Car car2 = new Car();
-//		car2.setBrand( "Ford" );
-//		car2.setModel("Fiesta");
-//		ksession.insert(car);
-//		ksession.insert(car2);
-//		ksession.fireAllRules();
-//		ksession.dispose();
-//		return car;
+		for(Car car: cars)
+			ksession.insert(car);
+		ksession.fireAllRules();
+		ksession.dispose();
 		return cars;
 		
 	}

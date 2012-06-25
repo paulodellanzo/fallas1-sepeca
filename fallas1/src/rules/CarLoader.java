@@ -14,9 +14,9 @@ public class CarLoader {
 		BufferedReader reader= null;
 		
 		try {
-			//URL url = ClassLoader.getSystemResource("base") ;   
-			//URI uri = new URI(url.toString());   
-			file=new File("base");
+
+			
+			file=new File("C:\\Users\\Sebastián\\Documents\\base");
 			fr=new FileReader(file);
 			reader = new BufferedReader(fr);
 			
