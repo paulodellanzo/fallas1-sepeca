@@ -34,7 +34,7 @@ public class Criteria {
 		
 		for(int i=0;i<listSize;i++){
 			html=html.concat("<div class=\"attribute\">");
-			html=html.concat("<a>"+attributeList.get(i).getDescription()+"</a>");
+			html=html.concat("<a class=\"attdesc\">"+attributeList.get(i).getDescription()+"</a>");
 			html=html.concat("<div class=\"divselect\">");
 			html=html.concat("<select class=\"select\" name=\""+attributeList.get(i).getName()+"\">");
 			int attListSize = attributeList.get(i).getOptionsList().size();

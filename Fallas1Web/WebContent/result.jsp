@@ -16,22 +16,19 @@
 		
 	}
 	
-	
 	for(Attribute att : inputAttributes){
 		out.println(att.getName()+" : "+att.getValue());
 	}
 	
-	
 	RulesManager rulesManager = new RulesManager();
 	ArrayList<Car> cars = rulesManager.getBestCars(inputAttributes);
-	out.println("Size:"+cars.size());
 	
-%> 
-
-
-
-   		<ul id="slider">
-   			<li class="car">
+	%>
+	<ul id="slider">
+	<%
+	for (int i=0;i<10;i++){
+		%>
+		   			<li class="car">
    				
    		   		
    				<div class="image">
@@ -43,30 +40,15 @@
    		   		</div>
    				
    			</li>
-
-   			<li class="car">
-   				
-   		   		
-   				<div class="image">
-   				<img src="9680_20111108102412.jpg">
-   				</div>
-   				<div class="description">
-   		   			bbbbb
-   		   		</div>
-   		   		
-   				
-   			</li>
-
-   			<li class="car">
-   				
-   				<div class="image">
-   				<img src="8799_20110921150453.jpg">
-   				</div>
-   				<div class="description">
-   					cccccc
-   				</div>
-   			</li>
-		</ul>
+		
+		<%
+		
+	}
+	
+	
+%>  
+	</ul>
+		
 		
 <script>
 $(function(){
