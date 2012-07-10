@@ -23,7 +23,7 @@
 	<ul id="slider">
 	<%
 	for (Car car:cars){
-		%>
+		%>        
 		<li class="car"> 		
    			<div class="image">
    		<%
@@ -35,7 +35,7 @@
    			out.println("Marca: "+car.getMarca());
    			out.println("<br/>");
    			out.println("Modelo: "+car.getModelo());
-   			out.println("<br/>");
+   			out.println("<br/>");   
    			out.println("Versión: "+car.getVersion());
    			out.println("<br/>");
    			out.println("Precio: "+Integer.toString(car.getPrecio()));
@@ -57,8 +57,8 @@ $(function(){
 		 buildArrows         : true,
 		 buildNavigation     : true,
 		 hashTags			 : false,
-		 startText           : "Correr", 
-		 stopText            : "Parar"
+		 startText           : "Go", 
+		 stopText            : "Stop"
 	});
 });
 </script>		

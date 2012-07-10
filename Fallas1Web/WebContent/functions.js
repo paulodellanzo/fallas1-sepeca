@@ -18,4 +18,17 @@ function getResult(){
 	}
 	
 	$('#result').load('result.jsp'+parametros);
+	
+	
 }
+function changeOptions(){
+	
+	changeOptionsDo($('#level').val());
+	
+}
+
+$(document).ready(function(){
+	changeOptions();
+});
+
+

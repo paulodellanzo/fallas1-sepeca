@@ -15,7 +15,12 @@
   <body>
    
    	<div id="header">
-   		<h1>Sistema Experto para elección de compra de automóvil</h1>
+   		<h3>Sistema Experto para elección de compra de automóvil</h1>
+   		<select onchange="changeOptions()" id="level">
+   		<option value=1>Básico </option>
+   		<option value=2>Intermedio </option>
+   		<option value=3>Avanzado </option> 
+   		</select>
    	</div>
    
    	<div id="body">
@@ -24,9 +29,10 @@
 		Criteria criteria = new Criteria();
 		out.println(criteria.getHTML());
    		%> 
-   		<button id="submit" type="button" onClick="getResult()">
+		<button id="submit" type="button" onClick="getResult()">
    		Mostrar autos recomendados
    		</button>
+
    		</div>
    		
    		
