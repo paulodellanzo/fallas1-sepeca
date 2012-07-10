@@ -23,7 +23,7 @@
 	<ul id="slider">
 	<%
 	for (Car car:cars){
-		%>        
+		%>
 		<li class="car"> 		
    			<div class="image">
    		<%
@@ -45,7 +45,7 @@
 		<%
 	}
 	
-	
+	  
 %>  
 	</ul>
 		
