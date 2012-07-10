@@ -1,11 +1,22 @@
 package rules;
 global java.util.List list
+dialect "mvel"
 
-rule "Regla2"
-    dialect "mvel"
-    when
-        a: Attribute (name == "Uso" && value == 3 )
-        c: Car (frenos == 5)
-    then
-        c.selected = 1;
+rule "Autos de menos de 200000 pesos"
+		salience(1000)
+	when
+		c: Car (precio < 200000)
+	then
+		retract(c):
 end
+	
+
+rule "Precio indicado por el usuario"
+		salience(999)
+    when
+        Attribute (name == "Precio", v: value > 0)
+        c: Car (precio > (46000+14000*v) || precio == 0)
+    then
+        retract(c);
+end
+

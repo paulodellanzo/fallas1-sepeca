@@ -37,12 +37,17 @@ public class RulesManager {
 		for(Car car: cars)
 			ksession.insert(car);
 		
+		ksession.insert(new Attribute("Seguridad",5));
+		ksession.insert(new Attribute("Confort",5));		
+		ksession.insert(new Attribute("Entretenimiento",5));		
+		ksession.insert(new Attribute("Potencia",5));		
+		ksession.insert(new Attribute("Diseño",5));		
+		
 		for(Attribute attribute: attributes)
 			ksession.insert(attribute);
 		
 		ksession.fireAllRules();
 		ksession.dispose();
-		
 		
 		ArrayList<Car> resultCar = new ArrayList<Car>();
 		for(Car car:cars)
