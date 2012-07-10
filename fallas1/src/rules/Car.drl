@@ -2,16 +2,15 @@ package rules;
 global java.util.List list
 dialect "mvel"
 
-rule "Autos de menos de 200000 pesos"
+rule "Prefiltrado: Autos de menos de 200000 pesos"
 		salience(1000)
 	when
-		c: Car (precio < 200000)
+		c: Car (precio > 200000)
 	then
-		retract(c):
+		retract(c);
 end
-	
 
-rule "Precio indicado por el usuario"
+rule "Precio"
 		salience(999)
     when
         Attribute (name == "Precio", v: value > 0)
@@ -20,3 +19,260 @@ rule "Precio indicado por el usuario"
         retract(c);
 end
 
+rule "Sexo - masculino"
+		salience(500)
+    when
+        Attribute (name == "Sexo", value == 1)
+        at1: Attribute (name == "Potencia")
+    then
+        at1.value = at1.value + 1;
+end
+
+rule "Sexo - femenino"
+		salience(500)
+    when
+        Attribute (name == "Sexo", value == 2)
+        at1: Attribute (name == "Diseño")
+        at2: Attribute (name == "Potencia")
+        at3: Attribute (name == "Confort")
+    then
+        at1.value = at1.value + 1;
+        at2.value = at2.value - 2;
+        at3.value = at3.value + 1; 
+end
+
+rule "Uso - Ir a trabajar o trabajar con el vehículo"
+		salience(500)
+    when
+        Attribute (name == "Uso" && (value == 1 || value == 4))
+        at1: Attribute (name == "Diseño")
+
+    then
+        at1.value = at1.value - 2;
+end
+
+rule "Uso - Fines de semana"
+		salience(500)
+    when
+        Attribute (name == "Uso", value == 2)
+        at1: Attribute (name == "Diseño")
+		at2: Attribute (name == "Entretenimiento")
+		at3: Attribute (name == "Ruta")
+    then
+        at1.value = at1.value + 1;
+        at2.value = at2.value + 1;
+        at3.value = 1;
+end
+
+rule "Uso - Vacaciones largas distancias"
+		salience(500)
+    when
+        Attribute (name == "Uso", value == 3)
+        at1: Attribute (name == "Confort")
+		at2: Attribute (name == "Entretenimiento")
+		at3: Attribute (name == "Ruta")
+    then
+        at1.value = at1.value + 1;
+        at2.value = at2.value + 1;
+        at3.value = 1;
+end
+
+rule "Menores - Sí"
+		salience(500)
+    when
+        Attribute (name == "Menores", value == 1)
+        at1: Attribute (name == "Seguridad")
+		at2: Attribute (name == "MenoresSN")
+    then
+        at1.value = at1.value + 2;
+        at2.value = 1;
+end
+
+rule "Menores - No"
+		salience(500)
+    when
+        Attribute (name == "Menores", value == 2)
+		at1: Attribute (name == "MenoresSN")
+    then
+        at1.value = 0;
+end
+
+rule "Edad - 18 a 25"
+		salience(500)
+    when
+        Attribute (name == "Edad", value == 1)
+		at1: Attribute (name == "Potencia")
+		at2: Attribute (name == "Entretenimiento")
+    then
+        at1.value = at1.value + 3;
+        at2.value = at2.value + 2;
+end
+
+rule "Edad - 26 a 45"
+		salience(500)
+    when
+        Attribute (name == "Edad", value == 2)
+		at1: Attribute (name == "Potencia")
+		at2: Attribute (name == "Diseño")
+		at3: Attribute (name == "Seguridad")
+    then
+        at1.value = at1.value + 2;
+        at2.value = at2.value + 2;
+        at3.value = at3.value + 1;
+end
+
+rule "Edad - 46 a 60"
+		salience(500)
+    when
+        Attribute (name == "Edad", value == 3)
+		at1: Attribute (name == "Diseño")
+		at2: Attribute (name == "Seguridad")
+		at3: Attribute (name == "Confort")
+    then
+        at1.value = at1.value + 3;
+        at2.value = at2.value + 2;
+        at3.value = at3.value + 2;
+end
+
+rule "Edad - Más de 60"
+		salience(500)
+    when
+        Attribute (name == "Edad", value == 4)
+		at1: Attribute (name == "Seguridad")
+		at2: Attribute (name == "Confort")
+		at3: Attribute (name == "Entretenimiento")
+    then
+        at1.value = at1.value + 2;
+        at2.value = at2.value + 3;
+        at3.value = at3.value - 1;
+end
+
+rule "Distancia a lugar de trabajo - 0 a 10 km"
+		salience(500)
+    when
+        Attribute (name == "DistanciaTrabajo", value == 1)
+		at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = 220;
+end
+
+rule "Distancia a lugar de trabajo - 10 a 30 km"
+		salience(500)
+    when
+        Attribute (name == "DistanciaTrabajo", value == 2)
+		at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = 880;
+end
+
+rule "Distancia a lugar de trabajo - 30 a 100 km"
+		salience(500)
+    when
+        Attribute (name == "DistanciaTrabajo", value == 3)
+		at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = 2680;
+end
+
+rule "Distancia a lugar de trabajo - Más de 100 km"
+		salience(500)
+    when
+        Attribute (name == "DistanciaTrabajo", value == 4)
+		at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = 8800;
+end
+
+rule "Viaje al trabajo por ruto o autopista - Sí"
+		salience(500)
+    when
+        Attribute (name == "RutaTrabajo", value == 1)
+		at1: Attribute (name == "Ruta")
+    then
+        at1.value = 1;
+end
+
+rule "Viaje al trabajo por ruto o autopista - No"
+		salience(500)
+    when
+        Attribute (name == "RutaTrabajo", value == 2)
+		at1: Attribute (name == "Ruta")
+    then
+        at1.value = 0;
+end
+
+rule "Distancia fines de semana - 0 a 50 km o NS/NC"
+		salience(500)
+    when
+        Attribute (name == "DistanciaFinesDeSemana", (value == 1||value == 0))
+		at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = 216;
+end
+
+rule "Distancia fines de semana - 50 a 200 km"
+		salience(500)
+    when
+        Attribute (name == "DistanciaFinesDeSemana", value == 2)
+		at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = 1082;
+end
+
+rule "Distancia fines de semana - Más de 200 km"
+		salience(500)
+    when
+        Attribute (name == "DistanciaFinesDeSemana", value == 3)
+		at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = 2598;
+end
+
+rule "Cantidad de viajes al año - Uno"
+		salience(500)
+    when
+        Attribute (name == "CantVacaciones", value == 1)
+		at1: Attribute (name == "CantViajes")
+    then
+        at1.value = 1;
+end
+
+rule "Cantidad de viajes al año - Dos"
+		salience(500)
+    when
+        Attribute (name == "CantVacaciones", value == 2)
+		at1: Attribute (name == "CantViajes")
+    then
+        at1.value = 2;
+end
+
+rule "Viaja diariamente por su trabajo - Sí"
+		salience(500)
+    when
+        Attribute (name == "DiarioTrabajo", value == 1)
+		at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = 1500;
+end
+
+rule "Viaja diariamente por su trabajo - No"
+		salience(500)
+    when
+        Attribute (name == "DiarioTrabajo", value == 2)
+		at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = 1200;
+end
+
+
+
+
+
+
+
+rule "Selección"
+	when
+		c: Car ()
+	then
+		c.selected = 1;
+end

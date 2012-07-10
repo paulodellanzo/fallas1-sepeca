@@ -41,7 +41,11 @@ public class RulesManager {
 		ksession.insert(new Attribute("Confort",5));		
 		ksession.insert(new Attribute("Entretenimiento",5));		
 		ksession.insert(new Attribute("Potencia",5));		
-		ksession.insert(new Attribute("Diseño",5));		
+		ksession.insert(new Attribute("Diseño",5));	
+		ksession.insert(new Attribute("Ruta",0));	
+		ksession.insert(new Attribute("MenoresSN",0));
+		ksession.insert(new Attribute("DistanciaMes",0));
+		ksession.insert(new Attribute("CantViajes",0));
 		
 		for(Attribute attribute: attributes)
 			ksession.insert(attribute);
