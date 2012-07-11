@@ -48,7 +48,11 @@ public class Car {
 	private int direccion;
 	private int capacidadCarga;
 	private int transmision;
-
+	private int tanque;
+	private int largo;
+	private int ancho;
+	private int alto;
+	
 	public Car(){
 		
 	}
@@ -845,6 +849,38 @@ public class Car {
 
 	public void setSelected(int selected) {
 		this.selected = selected;
+	}
+
+	public int getTanque() {
+		return tanque;
+	}
+
+	public void setTanque(int tanque) {
+		this.tanque = tanque;
+	}
+
+	public int getLargo() {
+		return largo;
+	}
+
+	public void setLargo(int largo) {
+		this.largo = largo;
+	}
+
+	public int getAncho() {
+		return ancho;
+	}
+
+	public void setAncho(int ancho) {
+		this.ancho = ancho;
+	}
+
+	public int getAlto() {
+		return alto;
+	}
+
+	public void setAlto(int alto) {
+		this.alto = alto;
 	}
 }
     

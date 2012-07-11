@@ -64,7 +64,7 @@ rule "Uso - Fines de semana"
         at3.value = 1;
 end
 
-rule "Uso - Vacaciones largas distancias"
+rule "Uso - Vacaciones largas distancias 1"
 		salience(500)
     when
         Attribute (name == "Uso", value == 3)
@@ -75,6 +75,15 @@ rule "Uso - Vacaciones largas distancias"
         at1.value = at1.value + 1;
         at2.value = at2.value + 1;
         at3.value = 1;
+end
+
+rule "Uso - Vacaciones largas distancias 2"
+		salience(500)
+    when
+        Attribute (name == "Uso", value == 3)
+		c: Car (tanque < 50)
+    then
+        retract (c);
 end
 
 rule "Menores - Sí"
@@ -264,8 +273,189 @@ rule "Viaja diariamente por su trabajo - No"
         at1.value = 1200;
 end
 
+rule "Transporta por trabajo - Personas"
+		salience(500)
+    when
+        Attribute (name == "TransporteTrabajo", value == 1)
+		c: Car (largo <= 4500)
+    then
+        retract (c);
+end
 
+rule "Transporta por trabajo - Carga 1"
+		salience(500)
+    when
+        Attribute (name == "TransporteTrabajo", value == 2)
+		at1: Attribute (name == "Carga")
+    then
+        at1.value = 1;
+end
 
+rule "Transporta por trabajo - Carga 2"
+		salience(500)
+    when
+        Attribute (name == "TransporteTrabajo", value == 2)
+		c: Car (ancho <= 1850 || largo <= 4600 || alto <= 1700 || capacidadCarga <= 600)
+    then
+        retract (c);
+end
+
+rule "Uso para trabajo ruta o autopista - Sí"
+		salience(500)
+    when
+        Attribute (name == "RutaOAutopistaTrabajo", value == 1)
+		at1: Attribute (name == "Seguridad")
+		at2: Attribute (name == "Ruta")
+    then
+        at1.value = at1.value + 1;
+		at2.value = 1;
+end
+
+rule "Uso para trabajo ruta o autopista - No"
+		salience(500)
+    when
+        Attribute (name == "RutaOAutopistaTrabajo", value == 2)
+		at1: Attribute (name == "Ruta")
+    then
+        at1.value = 0;
+end
+
+rule "Transporte de menores - 1 a 3 1"
+		salience(500)
+    when
+        Attribute (name == "CantMenores", value == 1)
+		at1: Attribute (name == "Entretenimiento")
+    then
+        at1.value = at1.value + 1;
+end
+
+rule "Transporte de menores - 1 a 3 2"
+		salience(500)
+    when
+        Attribute (name == "CantMenores", value == 1)
+		c: Car (largo <= 4250)
+    then
+        retract (c);
+end
+
+rule "Transporte de menores - Más de 4 1"
+		salience(500)
+    when
+        Attribute (name == "CantMenores", value == 2)
+		at1: Attribute (name == "Entretenimiento")
+    then
+        at1.value = at1.value + 1;
+end
+
+rule "Transporte de menores - Más de 4 2"
+		salience(500)
+    when
+        Attribute (name == "CantMenores", value == 2)
+		c: Car (largo <= 4250)
+    then
+        retract (c);
+end
+
+rule "Experiencia de manejo - 0 a 2 años"
+		salience(500)
+    when
+        Attribute (name == "Experiencia", value == 1)
+        at1: Attribute (name == "Seguridad")
+        at2: Attribute (name == "CajaAutomatica")
+    then
+        at1.value = at1.value + 1;
+        at2.value = 1;
+end
+
+rule "Música - MP3"
+		salience(500)
+    when
+        Attribute (name == "Musica", value == 3)
+        at1: Attribute (name == "MP3")
+    then
+        at1.value = 1;
+end
+
+rule "Tecnología - Muy buena"
+		salience(500)
+    when
+        Attribute (name == "Tecnologia", value == 1)
+        at1: Attribute (name == "Tecnologia2")
+    then
+        at1.value = 1.25;
+end
+
+rule "Tecnología - Buena"
+		salience(500)
+    when
+        Attribute (name == "Tecnologia", value == 2)
+        at1: Attribute (name == "Tecnologia2")
+    then
+        at1.value = 1;
+end
+
+rule "Tecnología - Regular"
+		salience(500)
+    when
+        Attribute (name == "Tecnologia", value == 3)
+        at1: Attribute (name == "Tecnologia2")
+    then
+        at1.value = 0.75;
+end
+
+rule "Tecnología - Mala"
+		salience(500)
+    when
+        Attribute (name == "Tecnologia", value == 4)
+        at1: Attribute (name == "Tecnologia2")
+    then
+        at1.value = 0.5;
+end
+
+rule "Importante - Potencia del motor"
+		salience(500)
+    when
+        Attribute (name == "Importante", value == 1)
+        at1: Attribute (name == "Potencia")
+    then
+        at1.value = at1.value * 1.2;
+end
+
+rule "Importante - Aspecto"
+		salience(500)
+    when
+        Attribute (name == "Importante", value == 2)
+        at1: Attribute (name == "Diseño")
+    then
+        at1.value = at1.value * 1.3;
+end
+
+rule "Importante - Confort"
+		salience(500)
+    when
+        Attribute (name == "Importante", value == 3)
+        at1: Attribute (name == "Confort")
+    then
+        at1.value = at1.value * 1.2;
+end
+
+rule "Importante - Entretenimiento"
+		salience(500)
+    when
+        Attribute (name == "Importante", value == 4)
+        at1: Attribute (name == "Entretenimiento")
+    then
+        at1.value = at1.value * 1.2;
+end
+
+rule "Importante - Seguridad"
+		salience(500)
+    when
+        Attribute (name == "Importante", value == 5)
+        at1: Attribute (name == "Seguridad")
+    then
+        at1.value = at1.value * 1.1;
+end
 
 
 
