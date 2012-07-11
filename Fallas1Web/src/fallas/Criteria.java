@@ -111,7 +111,7 @@ public class Criteria {
 		attributeList.add(attribute);
 		
 		attribute=new Attribute("Gasto","¿Qué gastos mensuales de mantenimiento está dispuesto a afrontar como máximo?","11",2);
-		attribute.addOptions("NS/NC","10.000","8.000","6.000","5.000","4.000","3.500","3.000","2.500","2.000","1.750","1.500","1.250","1.000","800");
+		attribute.addOptions("NS/NC","800","1.200","1.600","2.000","2.400","2.800","3.200","3.600","4.000","4.400","4.800","5.200","5.600","6.000");
 		attributeList.add(attribute);
 		
 		attribute=new Attribute("Noche","¿Viaja con mayor frecuencia de noche que de día?","12",3);
