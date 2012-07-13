@@ -18,8 +18,7 @@
 	
 	RulesManager rulesManager = new RulesManager();
 	ArrayList<Car> cars = rulesManager.getBestCars(inputAttributes);
-	
-	%>
+%>
 	<ul id="slider">
 	<%
 	for (Car car:cars){

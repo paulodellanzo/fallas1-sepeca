@@ -25,10 +25,10 @@
    
    	<div id="body">
     	<div id="criteria">
-    	<% 
-		Criteria criteria = new Criteria();
-		out.println(criteria.getHTML());
-   		%> 
+    	<%
+    		Criteria criteria = new Criteria();
+    	    out.println(criteria.getHTML());
+    	%> 
 		<button id="submit" type="button" onClick="getResult()">
    		Mostrar autos recomendados
    		</button>
