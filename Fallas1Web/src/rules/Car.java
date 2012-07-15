@@ -48,17 +48,18 @@ public class Car {
 	private int direccion;
 	private int capacidadCarga;
 	private int transmision;
+	
+	
+	//Falta sacar los siguientes atributos
 	private int tanque;
 	private int largo;
 	private int ancho;
 	private int alto;
+	private int consumoEnRuta;
+	private int consumoEnCiudad;
 	private int potencia;
 	private int torque;
 	private int luzDeStop;
-	
-	//Falta sacar los siguientes atributos
-	private int consumoEnRuta;
-	private int consumoEnCiudad;
 	
 	
 	//Los siguientes atributos los completa Drools
@@ -169,31 +170,17 @@ public class Car {
 		capacidadCarga=rangoCapacidadCarga(characteristics);
 		
 		transmision=rangoTransmision(characteristics);
-		
-		tanque=rangoTanque(characteristics);
-		
-		largo=rangoLargo(characteristics);
-		
-		ancho=rangoAncho(characteristics);
-		
-		alto=rangoAlto(characteristics);
-		
-		potencia=rangoPotencia(characteristics);
-		
-		torque=rangoTorque(characteristics);
-		
-		luzDeStop=rangoBooleano(characteristics[67]);
 	}
 	
 	private int rangoTransmision(String[] characteristics) {
 		String caja = characteristics[19].trim();
 		
-		if (caja.matches(".*Automática secuencial.*")) {
-			return 5;
-		} else if (caja.matches(".*Automática.*")) {
-			return 4;
+		if (caja.matches(".*tica secuencial.*")) {
+			return 2;
+		} else if (caja.matches(".*tica.*")) {
+			return 2;
 		} else if (caja.matches(".*ronic.*")) {
-			return 3;
+			return 2;
 		} else if (caja.matches(".*DSG.*")) {
 			return 2;
 		} else if (caja.matches(".*Manual.*")) {
@@ -226,14 +213,14 @@ public class Car {
 
 	private int rangoDireccion(String[] characteristics) {
 		String dir = characteristics[47].trim();
-		if (dir.matches(".*lectr.*") || dir.matches(".*léctr.*")) {
-			return 5;
+		if (dir.matches(".*lectr.*") || dir.matches(".*tric.*")) {
+			return 0;
 		} else if (dir.matches(".*Servo.*")) {
-			return 4;
+			return 0;
 		} else if (dir.matches(".*Asistida.*")) {
-			return 3;
-		} else if (dir.matches(".*Hidráulica.*")) {
-			return 2;
+			return 1;
+		} else if (dir.matches(".*Hidr.*")) {
+			return 1;
 		}
 		return 0;
 	}
@@ -296,7 +283,7 @@ public class Car {
 
 	private int rangoLlantas(String[] characteristics) {
 		String llantas = characteristics[51];
-		if (llantas.matches(".*Aleación.*")) {
+		if (llantas.matches(".*Aleaci.*")) {
 			return 5;
 		} else if (llantas.matches(".*Acero.*")) {
 			return 2;
@@ -313,132 +300,26 @@ public class Car {
 	}
 
 	private int rangoParlantes(String[] characteristics) {
-		int parlantes = 0;
+		int parlantes = 2;
 		try {
 			parlantes=Integer.parseInt(characteristics[75]);
 		} catch (NumberFormatException e) {
-			parlantes=0;
+			parlantes=2;
 		}
 		if (parlantes==0) {
-			return 0;
+			return 2;
 		} else if (parlantes<=2) {
-			return 1;
-		} else if (parlantes<=4) {
+			return 2;
+		} else if (parlantes<4) {
 			return 2;
 		} else if (parlantes<=6) {
 			return 3;
 		} else if (parlantes<=10) {
 			return 4;
 		} else if (parlantes<=50) {
-			return 5;
-		}
-		return 0;
-	}
-	
-	private int rangoTanque(String[] characteristics) {
-		int tanque = 0;
-		try {
-			tanque=Integer.parseInt(characteristics[30]);
-		} catch (NumberFormatException e) {
-			tanque=0;
-		}
-		
-		if(tanque>0 && tanque<=40){
-			return 1;
-		} else if (tanque>40 && tanque<=50) {
-			return 2;
-		} else if (tanque>50 && tanque<=65) {
-			return 3;
-		} else if (tanque>65 && tanque<=80) {
 			return 4;
-		} else if (tanque>100) {
-			return 5;
 		}
 		return 0;
-	}
-	
-	private int rangoPotencia(String[] characteristics) {
-		int potencia = 0;
-		try {
-			potencia=Integer.parseInt(characteristics[12].trim());
-		} catch (NumberFormatException e) {
-			potencia=0;
-		}
-		
-		if(potencia>0 && potencia<=60){
-			return 1;
-		} else if (potencia>60 && potencia<=100) {
-			return 2;
-		} else if (potencia>100 && potencia<=135) {
-			return 3;
-		} else if (potencia>135 && potencia<=170) {
-			return 4;
-		} else if (potencia>170) {
-			return 5;
-		}
-		return 0;
-	}
-	
-	private int rangoTorque(String[] characteristics) {
-		int torque = 0;
-		try {
-			torque=Integer.parseInt(characteristics[13].trim());
-		} catch (NumberFormatException e) {
-			torque=0;
-		}
-		
-		if(torque>0 && torque<=100){
-			return 1;
-		} else if (torque>100 && torque<=150) {
-			return 2;
-		} else if (torque>150 && torque<=200) {
-			return 3;
-		} else if (torque>300 && torque<=400) {
-			return 4;
-		} else if (torque>400) {
-			return 5;
-		}
-		return 0;
-	}
-	
-	private int rangoLargo(String[] characteristics) {
-		int largo = 0;
-		try {
-			largo=Integer.parseInt(characteristics[25].trim());
-		} catch (NumberFormatException e) {
-			largo=0;
-		}
-		return largo;
-	}
-	
-	private int rangoAncho(String[] characteristics) {
-		int ancho = 0;
-		try {
-			ancho=Integer.parseInt(characteristics[26].trim());
-		} catch (NumberFormatException e) {
-			ancho=0;
-		}
-		
-		if (ancho==0) {
-			try {
-				ancho=Integer.parseInt(characteristics[27].trim());
-			} catch (NumberFormatException e) {
-				ancho=0;
-			}
-		}
-		
-		return ancho;
-	}
-	
-	private int rangoAlto(String[] characteristics) {
-		int alto = 0;
-		try {
-			alto=Integer.parseInt(characteristics[28].trim());
-		} catch (NumberFormatException e) {
-			alto=0;
-		}
-		
-		return alto;
 	}
 
 	private int rangoEquipoMusica(String[] characteristics) {
@@ -471,14 +352,14 @@ public class Car {
 
 	private int rangoVidrios(String[] characteristics) {
 		String vidrios = characteristics[53];
-		if (vidrios.matches(".*Delanteros y traseros eléctricos.*")) {
-			return 5;
-		} else if (vidrios.matches(".*eléctricos.*")) {
-			return 4;
-		} else if (vidrios.matches(".*traseros manuales.*")) {
+		if (vidrios.matches(".*Delanteros y traseros.*") && vidrios.matches(".*tricos.*")) {
 			return 2;
-		} else if (vidrios.matches(".*manuales.*")) {
+		} else if (vidrios.matches(".*tricos.*")) {
 			return 1;
+		} else if (vidrios.matches(".*traseros manuales.*")) {
+			return 1;
+		} else if (vidrios.matches(".*manuales.*")) {
+			return 0;
 		}
 		return 0;
 	}
@@ -502,9 +383,9 @@ public class Car {
 	private int rangoGps(String[] characteristics) {
 		String gps = characteristics[76];
 		if(gps.matches(".*Navegador satelital.*") || gps.matches(".*MMI con pantalla color.*")) {
-			return 5;
-		} else if (gps.matches(".*navegación satelital.*")) {
-			return 4;
+			return 1;
+		} else if (gps.matches(".*satelital.*")) {
+			return 1;
 		}
 		return 0;
 	}
@@ -512,11 +393,11 @@ public class Car {
 	private int rangoEspejosExternos(String[] characteristics) {
 		String espejo = characteristics[48];
 		if(espejo.matches(".*plegado.*") || espejo.matches(".*enfoque.*")) {
-			return 5;
-		} else if (espejo.matches(".*térmicos.*")) {
-			return 4;
-		} else if (espejo.matches(".*léctricos.*")) {
-			return 2;
+			return 1;
+		} else if (espejo.matches(".*rmicos.*")) {
+			return 1;
+		} else if (espejo.matches(".*tricos.*")) {
+			return 1;
 		}
 		return 0;
 	}
@@ -525,12 +406,11 @@ public class Car {
 		String puertas = characteristics[46];
 		int resultado = 0;
 		if(puertas.matches(".*comando a distancia.*")) {
-			resultado=3;
+			resultado=1;
 		} else if (puertas.matches(".*Centralizado.*")) {
-			resultado=2;
+			resultado=1;
 		}
-		if(puertas.matches(".*baúl.*")) resultado++;
-		if(puertas.matches(".*tanque.*")) resultado++;
+
 		
 		return resultado;
 	}
@@ -541,7 +421,7 @@ public class Car {
 			return 5;
 		} else if (asiento.matches(".*Calefaccionables.*")) {
 			return 4;
-		} else if (asiento.matches(".*eléctrico.*")) {
+		} else if (asiento.matches(".*trico.*")) {
 			return 3;
 		} else if (asiento.matches(".*Deportivos.*")) {
 			return 2;
@@ -552,17 +432,17 @@ public class Car {
 	private int rangoAireAcondicionado(String[] characteristics){
 		String aire = characteristics[43];
 		if(aire.matches(".*de cuatro zonas.*")) {
-			return 5;
+			return 4;
 		} else if (aire.matches(".*trizona.*")) {
 			return 4;
 		} else if (aire.matches(".*bizona.*")) {
-			return 3;
+			return 4;
 		} else if (aire.matches(".*Climatizador.*")) {
-			return 2;
+			return 4;
 		} else if (aire.matches(".*Aire acondicionado.*")) {
-			return 1;
+			return 3;
 		}
-		return 0;
+		return 2;
 	}
 	
 	private int rangoCinturones(String[] characteristics){
