@@ -48,10 +48,26 @@ public class Car {
 	private int direccion;
 	private int capacidadCarga;
 	private int transmision;
+	
+	
+	//Falta sacar los siguientes atributos
 	private int tanque;
 	private int largo;
 	private int ancho;
 	private int alto;
+	private int consumoEnRuta;
+	private int consumoEnCiudad;
+	private int potencia;
+	private int torque;
+	private int luzDeStop;
+	
+	
+	//Los siguientes atributos los completa Drools
+	private double potenciaDrl;
+	private double seguridadDrl;
+	private double confortDrl;
+	private double entretenimientoDrl;
+	private double designDrl;
 	
 	public Car(){
 		
@@ -432,10 +448,10 @@ public class Car {
 	
 	private int rangoCinturones(String[] characteristics){
 		String cinturon = characteristics[66];
-		if(cinturon.matches(".*delanteros y traseros.*")) {
-			return 5;
+		if(cinturon.matches(".*delanteros y traseros.*") && cinturon.matches(".*inercial.*")) {
+			return 1;
 		} else if (cinturon.matches(".*delanteros.*")) {
-			return 3;
+			return 0;
 		}
 		return 0;
 	}
@@ -443,11 +459,11 @@ public class Car {
 	private int rangoAirbagConductor(String[] characteristics) {
 		String airbag = characteristics[64];
 		if(airbag.matches(".*odilla.*")) {
-			return 5;
+			return 1;
 		} else if (airbag.matches(".*Cabeza.*")) {
-			return 4;
+			return 1;
 		} else if (airbag.matches(".*Laterales delanteros y traseros.*")) {
-			return 2;
+			return 1;
 		} else if (airbag.matches(".*Conductor.*")) {
 			return 1;
 		}
@@ -501,7 +517,7 @@ public class Car {
 	
 	private int rangoBooleano(String valor){
 		if(valor.matches(".*si.*")){
-			return 5;
+			return 1;
 		} else {
 			return 0;
 		}
@@ -882,6 +898,88 @@ public class Car {
 	public void setAlto(int alto) {
 		this.alto = alto;
 	}
+
+	public int getConsumoEnRuta() {
+		return consumoEnRuta;
+	}
+
+	public void setConsumoEnRuta(int consumoEnRuta) {
+		this.consumoEnRuta = consumoEnRuta;
+	}
+
+	public int getConsumoEnCiudad() {
+		return consumoEnCiudad;
+	}
+
+	public void setConsumoEnCiudad(int consumoEnCiudad) {
+		this.consumoEnCiudad = consumoEnCiudad;
+	}
+	public double getPotenciaDrl() {
+		return potenciaDrl;
+	}
+
+	public void setPotenciaDrl(double potencia) {
+		this.potenciaDrl = potencia;
+	}
+
+	public double getSeguridadDrl() {
+		return seguridadDrl;
+	}
+
+	public void setSeguridadDrl(double seguridad) {
+		this.seguridadDrl = seguridad;
+	}
+
+	public double getConfortDrl() {
+		return confortDrl;
+	}
+
+	public void setConfortDrl(double confort) {
+		this.confortDrl = confort;
+	}
+
+	public double getEntretenimientoDrl() {
+		return entretenimientoDrl;
+	}
+
+	public void setEntretenimientoDrl(double entretenimiento) {
+		this.entretenimientoDrl = entretenimiento;
+	}
+
+	public double getDesignDrl() {
+		return designDrl;
+	}
+
+	public void setDesignDrl(double design) {
+		this.designDrl = design;
+	}
+
+	public int getPotencia() {
+		return potencia;
+	}
+
+	public void setPotencia(int potencia) {
+		this.potencia = potencia;
+	}
+
+	public int getTorque() {
+		return torque;
+	}
+
+	public void setTorque(int torque) {
+		this.torque = torque;
+	}
+
+	public int getLuzDeStop() {
+		return luzDeStop;
+	}
+
+	public void setLuzDeStop(int luzDeStop) {
+		this.luzDeStop = luzDeStop;
+	}
+
+
+	
 }
     
     
