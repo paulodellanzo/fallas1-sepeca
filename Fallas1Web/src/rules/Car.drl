@@ -10,7 +10,7 @@ rule "Prefiltrado: Autos de menos de 200000 pesos"
 		retract(c);
 end
 
-rule "Precio"
+rule "(1) Regla 1: Precio"
 		salience(999)
     when
         Attribute (name == "Precio", v: value > 0)
@@ -19,7 +19,7 @@ rule "Precio"
         retract(c);
 end
 
-rule "Sexo - masculino"
+rule "(2) Regla 2: Sexo - masculino"
 		salience(500)
     when
         Attribute (name == "Sexo", value == 1)
@@ -28,7 +28,7 @@ rule "Sexo - masculino"
         at1.value = at1.value + 1;
 end
 
-rule "Sexo - femenino"
+rule "(2) Regla 3: Sexo - femenino"
 		salience(500)
     when
         Attribute (name == "Sexo", value == 2)
@@ -41,7 +41,7 @@ rule "Sexo - femenino"
         at3.value = at3.value + 1; 
 end
 
-rule "Uso - Ir a trabajar o trabajar con el vehículo"
+rule "(3) Regla 4: Uso - Ir a trabajar o trabajar con el vehículo"
 		salience(500)
     when
         Attribute (name == "Uso" && (value == 1 || value == 4))
@@ -51,7 +51,7 @@ rule "Uso - Ir a trabajar o trabajar con el vehículo"
         at1.value = at1.value - 2;
 end
 
-rule "Uso - Fines de semana"
+rule "(3) Regla 5: Uso - Fines de semana"
 		salience(500)
     when
         Attribute (name == "Uso", value == 2)
@@ -64,7 +64,7 @@ rule "Uso - Fines de semana"
         at3.value = 1;
 end
 
-rule "Uso - Vacaciones largas distancias 1"
+rule "(3) Regla 6: Uso - Vacaciones largas distancias 1"
 		salience(500)
     when
         Attribute (name == "Uso", value == 3)
@@ -77,7 +77,7 @@ rule "Uso - Vacaciones largas distancias 1"
         at3.value = 1;
 end
 
-rule "Uso - Vacaciones largas distancias 2"
+rule "(3) Regla 7: Uso - Vacaciones largas distancias 2"
 		salience(500)
     when
         Attribute (name == "Uso", value == 3)
@@ -86,7 +86,7 @@ rule "Uso - Vacaciones largas distancias 2"
         retract (c);
 end
 
-rule "Menores - Sí"
+rule "(4) Regla 8: Menores - Sí"
 		salience(500)
     when
         Attribute (name == "Menores", value == 1)
@@ -97,7 +97,7 @@ rule "Menores - Sí"
         at2.value = 1;
 end
 
-rule "Menores - No"
+rule "(4) Regla 9: Menores - No"
 		salience(500)
     when
         Attribute (name == "Menores", value == 2)
@@ -106,7 +106,7 @@ rule "Menores - No"
         at1.value = 0;
 end
 
-rule "Edad - 18 a 25"
+rule "(5) Regla 10: Edad - 18 a 25"
 		salience(500)
     when
         Attribute (name == "Edad", value == 1)
@@ -117,7 +117,7 @@ rule "Edad - 18 a 25"
         at2.value = at2.value + 2;
 end
 
-rule "Edad - 26 a 45"
+rule "(5) Regla 11: Edad - 26 a 45"
 		salience(500)
     when
         Attribute (name == "Edad", value == 2)
@@ -130,7 +130,7 @@ rule "Edad - 26 a 45"
         at3.value = at3.value + 1;
 end
 
-rule "Edad - 46 a 60"
+rule "(5) Regla 12: Edad - 46 a 60"
 		salience(500)
     when
         Attribute (name == "Edad", value == 3)
@@ -143,7 +143,7 @@ rule "Edad - 46 a 60"
         at3.value = at3.value + 2;
 end
 
-rule "Edad - Más de 60"
+rule "(5) Regla 13: Edad - Más de 60"
 		salience(500)
     when
         Attribute (name == "Edad", value == 4)
@@ -156,7 +156,7 @@ rule "Edad - Más de 60"
         at3.value = at3.value - 1;
 end
 
-rule "Distancia a lugar de trabajo - 0 a 10 km"
+rule "(6) Regla 14: Distancia a lugar de trabajo - 0 a 10 km"
 		salience(500)
     when
         Attribute (name == "DistanciaTrabajo", value == 1)
@@ -165,7 +165,7 @@ rule "Distancia a lugar de trabajo - 0 a 10 km"
         at1.value = 220;
 end
 
-rule "Distancia a lugar de trabajo - 10 a 30 km"
+rule "(6) Regla 15: Distancia a lugar de trabajo - 10 a 30 km"
 		salience(500)
     when
         Attribute (name == "DistanciaTrabajo", value == 2)
@@ -174,7 +174,7 @@ rule "Distancia a lugar de trabajo - 10 a 30 km"
         at1.value = 880;
 end
 
-rule "Distancia a lugar de trabajo - 30 a 100 km"
+rule "(6) Regla 16: Distancia a lugar de trabajo - 30 a 100 km"
 		salience(500)
     when
         Attribute (name == "DistanciaTrabajo", value == 3)
@@ -183,7 +183,7 @@ rule "Distancia a lugar de trabajo - 30 a 100 km"
         at1.value = 2680;
 end
 
-rule "Distancia a lugar de trabajo - Más de 100 km"
+rule "(6) Regla 17: Distancia a lugar de trabajo - Más de 100 km"
 		salience(500)
     when
         Attribute (name == "DistanciaTrabajo", value == 4)
@@ -192,7 +192,7 @@ rule "Distancia a lugar de trabajo - Más de 100 km"
         at1.value = 8800;
 end
 
-rule "Viaje al trabajo por ruto o autopista - Sí"
+rule "(7) Regla 18: Viaje al trabajo por ruta o autopista - Sí"
 		salience(500)
     when
         Attribute (name == "RutaTrabajo", value == 1)
@@ -201,7 +201,7 @@ rule "Viaje al trabajo por ruto o autopista - Sí"
         at1.value = 1;
 end
 
-rule "Viaje al trabajo por ruto o autopista - No"
+rule "(7) Regla 19: Viaje al trabajo por ruto o autopista - No"
 		salience(500)
     when
         Attribute (name == "RutaTrabajo", value == 2)
@@ -210,7 +210,7 @@ rule "Viaje al trabajo por ruto o autopista - No"
         at1.value = 0;
 end
 
-rule "Distancia fines de semana - 0 a 50 km o NS/NC"
+rule "(8) Regla 20: Distancia fines de semana - 0 a 50 km o NS/NC"
 		salience(500)
     when
         Attribute (name == "DistanciaFinesDeSemana", (value == 1||value == 0))
@@ -219,7 +219,7 @@ rule "Distancia fines de semana - 0 a 50 km o NS/NC"
         at1.value = 216;
 end
 
-rule "Distancia fines de semana - 50 a 200 km"
+rule "(8) Regla 21: Distancia fines de semana - 50 a 200 km"
 		salience(500)
     when
         Attribute (name == "DistanciaFinesDeSemana", value == 2)
@@ -228,7 +228,7 @@ rule "Distancia fines de semana - 50 a 200 km"
         at1.value = 1082;
 end
 
-rule "Distancia fines de semana - Más de 200 km"
+rule "(8) Regla 22: Distancia fines de semana - Más de 200 km"
 		salience(500)
     when
         Attribute (name == "DistanciaFinesDeSemana", value == 3)
@@ -237,7 +237,7 @@ rule "Distancia fines de semana - Más de 200 km"
         at1.value = 2598;
 end
 
-rule "Cantidad de viajes al año - Uno"
+rule "(9) Regla 23: Cantidad de viajes al año - Uno"
 		salience(500)
     when
         Attribute (name == "CantVacaciones", value == 1)
@@ -246,7 +246,7 @@ rule "Cantidad de viajes al año - Uno"
         at1.value = 1;
 end
 
-rule "Cantidad de viajes al año - Dos"
+rule "(9) Regla 24: Cantidad de viajes al año - Dos"
 		salience(500)
     when
         Attribute (name == "CantVacaciones", value == 2)
@@ -255,7 +255,7 @@ rule "Cantidad de viajes al año - Dos"
         at1.value = 2;
 end
 
-rule "Viaja diariamente por su trabajo - Sí"
+rule "(10) Regla 25: Viaja diariamente por su trabajo - Sí"
 		salience(500)
     when
         Attribute (name == "DiarioTrabajo", value == 1)
@@ -264,7 +264,7 @@ rule "Viaja diariamente por su trabajo - Sí"
         at1.value = 1500;
 end
 
-rule "Viaja diariamente por su trabajo - No"
+rule "(10) Regla 26: Viaja diariamente por su trabajo - No"
 		salience(500)
     when
         Attribute (name == "DiarioTrabajo", value == 2)
@@ -273,7 +273,7 @@ rule "Viaja diariamente por su trabajo - No"
         at1.value = 1200;
 end
 
-rule "Transporta por trabajo - Personas"
+rule "(11) Regla 27: Transporta por trabajo - Personas"
 		salience(500)
     when
         Attribute (name == "TransporteTrabajo", value == 1)
@@ -282,7 +282,7 @@ rule "Transporta por trabajo - Personas"
         retract (c);
 end
 
-rule "Transporta por trabajo - Carga 1"
+rule "(11) Regla 28: Transporta por trabajo - Carga 1"
 		salience(500)
     when
         Attribute (name == "TransporteTrabajo", value == 2)
@@ -291,7 +291,7 @@ rule "Transporta por trabajo - Carga 1"
         at1.value = 1;
 end
 
-rule "Transporta por trabajo - Carga 2"
+rule "(11) Regla 29: Transporta por trabajo - Carga 2"
 		salience(500)
     when
         Attribute (name == "TransporteTrabajo", value == 2)
@@ -300,7 +300,7 @@ rule "Transporta por trabajo - Carga 2"
         retract (c);
 end
 
-rule "Uso para trabajo ruta o autopista - Sí"
+rule "(12) Regla 30: Uso para trabajo ruta o autopista - Sí"
 		salience(500)
     when
         Attribute (name == "RutaOAutopistaTrabajo", value == 1)
@@ -311,7 +311,7 @@ rule "Uso para trabajo ruta o autopista - Sí"
 		at2.value = 1;
 end
 
-rule "Uso para trabajo ruta o autopista - No"
+rule "(12) Regla  31: Uso para trabajo ruta o autopista - No"
 		salience(500)
     when
         Attribute (name == "RutaOAutopistaTrabajo", value == 2)
@@ -320,7 +320,7 @@ rule "Uso para trabajo ruta o autopista - No"
         at1.value = 0;
 end
 
-rule "Transporte de menores - 1 a 3 1"
+rule "(13) Regla 32: Transporte de menores - 1 a 3 1"
 		salience(500)
     when
         Attribute (name == "CantMenores", value == 1)
@@ -329,7 +329,7 @@ rule "Transporte de menores - 1 a 3 1"
         at1.value = at1.value + 1;
 end
 
-rule "Transporte de menores - 1 a 3 2"
+rule "(13) Regla 33: Transporte de menores - 1 a 3 2"
 		salience(500)
     when
         Attribute (name == "CantMenores", value == 1)
@@ -338,7 +338,7 @@ rule "Transporte de menores - 1 a 3 2"
         retract (c);
 end
 
-rule "Transporte de menores - Más de 4 1"
+rule "(13) Regla 34: Transporte de menores - Más de 4 1"
 		salience(500)
     when
         Attribute (name == "CantMenores", value == 2)
@@ -347,7 +347,7 @@ rule "Transporte de menores - Más de 4 1"
         at1.value = at1.value + 1;
 end
 
-rule "Transporte de menores - Más de 4 2"
+rule "(13) Regla 35: Transporte de menores - Más de 4 2"
 		salience(500)
     when
         Attribute (name == "CantMenores", value == 2)
@@ -356,7 +356,7 @@ rule "Transporte de menores - Más de 4 2"
         retract (c);
 end
 
-rule "Experiencia de manejo - 0 a 2 años"
+rule "(14) Regla 36: Experiencia de manejo - 0 a 2 años"
 		salience(500)
     when
         Attribute (name == "Experiencia", value == 1)
@@ -367,7 +367,25 @@ rule "Experiencia de manejo - 0 a 2 años"
         at2.value = 1;
 end
 
-rule "Música - MP3"
+rule "(15) Regla 37: Combustible - Nafta"
+		salience(500)
+    when
+        Attribute (name == "Combustible", value == 1)
+		c: Car (combustible == "Diesel")
+    then
+        retract (c);
+end
+
+rule "(15) Regla 38: Combustible - Diesel"
+		salience(500)
+    when
+        Attribute (name == "Combustible", value == 2)
+		c: Car (combustible != "Diesel")
+    then
+        retract (c);
+end
+
+rule "(16) Regla 39: Música - MP3"
 		salience(500)
     when
         Attribute (name == "Musica", value == 3)
@@ -376,7 +394,7 @@ rule "Música - MP3"
         at1.value = 1;
 end
 
-rule "Tecnología - Muy buena"
+rule "(17) Regla 40: Tecnología - Muy buena"
 		salience(500)
     when
         Attribute (name == "Tecnologia", value == 1)
@@ -385,7 +403,7 @@ rule "Tecnología - Muy buena"
         at1.value = 1.25;
 end
 
-rule "Tecnología - Buena"
+rule "(17) Regla  41: Tecnología - Buena"
 		salience(500)
     when
         Attribute (name == "Tecnologia", value == 2)
@@ -394,7 +412,7 @@ rule "Tecnología - Buena"
         at1.value = 1;
 end
 
-rule "Tecnología - Regular"
+rule "(17) Regla 42: Tecnología - Regular"
 		salience(500)
     when
         Attribute (name == "Tecnologia", value == 3)
@@ -403,7 +421,7 @@ rule "Tecnología - Regular"
         at1.value = 0.75;
 end
 
-rule "Tecnología - Mala"
+rule "(17) Regla 43: Tecnología - Mala"
 		salience(500)
     when
         Attribute (name == "Tecnologia", value == 4)
@@ -412,7 +430,7 @@ rule "Tecnología - Mala"
         at1.value = 0.5;
 end
 
-rule "Importante - Potencia del motor"
+rule "(18) Regla 44: Importante - Potencia del motor"
 		salience(500)
     when
         Attribute (name == "Importante", value == 1)
@@ -421,7 +439,7 @@ rule "Importante - Potencia del motor"
         at1.value = at1.value * 1.2;
 end
 
-rule "Importante - Aspecto"
+rule "(18) Regla 45: Importante - Aspecto"
 		salience(500)
     when
         Attribute (name == "Importante", value == 2)
@@ -430,7 +448,7 @@ rule "Importante - Aspecto"
         at1.value = at1.value * 1.3;
 end
 
-rule "Importante - Confort"
+rule "(18) Regla 46: Importante - Confort"
 		salience(500)
     when
         Attribute (name == "Importante", value == 3)
@@ -439,7 +457,7 @@ rule "Importante - Confort"
         at1.value = at1.value * 1.2;
 end
 
-rule "Importante - Entretenimiento"
+rule "(18) Regla 47: Importante - Entretenimiento"
 		salience(500)
     when
         Attribute (name == "Importante", value == 4)
@@ -448,7 +466,7 @@ rule "Importante - Entretenimiento"
         at1.value = at1.value * 1.2;
 end
 
-rule "Importante - Seguridad"
+rule "(18) Regla 48: Importante - Seguridad"
 		salience(500)
     when
         Attribute (name == "Importante", value == 5)
@@ -456,6 +474,140 @@ rule "Importante - Seguridad"
     then
         at1.value = at1.value * 1.1;
 end
+
+rule "(19) Regla 49: Gastos"
+		salience(400)
+    when
+        Attribute (name == "Gasto", v: value > 0)
+        Attribute (name == "DistanciaMes",vd: value)
+        Attribute (name == "Ruta",vr: value)
+        c: Car ((precio*0.00627+(vd/100)*(consumoEnRuta*vr+consumoEnCiudad*(1-vr)) ) > (400+400*v))
+    then
+        retract(c);
+end
+
+rule "(20) Regla 50: Kilómetros por viaje"
+		salience(450)
+    when
+        Attribute (name == "KmViaje1", v: value > 0)
+        Attribute (name == "CantViajes", vc: value)
+        at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = vc*v*100;
+end
+
+rule "(20) Regla 51: Kilómetros por viaje"
+		salience(450)
+    when
+        Attribute (name == "KmViaje2", v: value > 0)
+        Attribute (name == "CantViajes", vc: value)
+        at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = vc*v*100;
+end
+
+rule "(21) Regla 52: Kilómetros por viaje"
+		salience(450)
+    when
+        Attribute (name == "KmViaje3", v: value > 0)
+        at1: Attribute (name == "DistanciaMes")
+    then
+        at1.value = v*1000/12;
+end
+
+rule "(22) Regla 53: Pasajeros transportados - 6 a 8"
+		salience(500)
+    when
+        Attribute (name == "CantPasajeros", value == 3)
+		c: Car (capacidadCarga <= 1500)
+    then
+        retract (c);
+end
+
+rule "(22) Regla 54: Pasajeros transportados - Más de 8"
+		salience(500)
+    when
+        Attribute (name == "CantPasajeros", value == 4)
+		c: Car (capacidadCarga <= 1500)
+    then
+        retract (c);
+end
+
+rule "(23) Regla 55: Carga transportada"
+		salience(500)
+    when
+        Attribute (name == "CantPasajeros", v: value > 0)
+		c: Car (capacidadCarga <= (v*500))
+    then
+        retract (c);
+end
+
+rule "(24) Regla 56: Mayor frecuencia de noche - Sí"
+		salience(500)
+    when
+        Attribute (name == "Noche", value == 1)
+		c: Car (airbagConductor == 0)
+    then
+        retract (c);
+end
+
+rule "(25) Regla 57: Transmisión - Manual"
+		salience(500)
+    when
+        Attribute (name == "Transmision", value == 1)
+		c: Car (transmision != 1)
+    then
+        retract (c);
+end
+
+rule "(25) Regla 57: Transmisión - Automática"
+		salience(500)
+    when
+        Attribute (name == "Transmision", value == 2)
+		c: Car (transmision == 1)
+    then
+        retract (c);
+end
+
+rule "(26) Regla 58: Auto híbrido - No"
+		salience(500)
+    when
+        Attribute (name == "Hibrido1", value == 2)
+		c: Car (combustible != "Hibrido")
+    then
+        retract (c);
+end
+
+rule "(26) Regla 59: Auto híbrido - No"
+		salience(500)
+    when
+        Attribute (name == "Hibrido2", value == 2)
+		c: Car (combustible != "Hibrido")
+    then
+        retract (c);
+end
+
+rule "Potencia"
+		salience(100)
+	when
+		c: Car ()
+		Attribute (name == "Carga",v: value)
+	then
+		c.potenciaDrl = (3/525) * c.potencia + (2/760)*v* c.torque + (2/316) * (1-v) *c.velocidad;
+end
+
+rule "Seguridad"
+		salience(100)
+	when
+		c: Car ()
+		Attribute (name == "Ruta", v: value)
+		Attribute (name == "MenoresSN", vm: value)
+	then
+		c.seguridadDrl = 1.7 + 0.8 * (1 - (0.5*v + 0.5*vm)) + (0.8 + (0.2*v + 0.2*vm))*c.abs + (0.9 + 0.4*v)*(c.airbagConductor/3) + 0.3*vm*c.cinturones;
+		
+		
+end
+
 
 
 
