@@ -14,8 +14,10 @@ public class PruebaMain {
 		ArrayList<Car> cars = rulesManager.getBestCars(attributes);
 		
 		System.out.println("Autos:");
-		for(Car car:cars)
-			System.out.println(car.getModelo());
+		for(Car car:cars){
+			System.out.println(car.getModelo()+" : "+car.getPotenciaDrl());
+		}
+			
 		
 	}
 
