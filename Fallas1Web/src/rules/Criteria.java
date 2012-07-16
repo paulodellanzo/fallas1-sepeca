@@ -9,116 +9,116 @@ public class Criteria {
 	ArrayList<Attribute> attributeList = new ArrayList<Attribute>();
 	
 	public Criteria(){
-		Attribute attribute=new Attribute("Precio","¿Cuanto es el precio máximo que está dispuesto a pagar (en pesos)?","1",1);
+		Attribute attribute=new Attribute("Precio","Â¿Cuanto es el precio mÃ¡ximo que estÃ¡ dispuesto a pagar (en pesos)?","1",1);
 		attribute.addOptions("NS/NC","60.000","74.000","88.000","102.000","116.000","130.000","144.000","158.000","172.000","186.000","200.000");
 		attributeList.add(attribute);
 
-		attribute=new Attribute("Sexo","¿Cual es su género?","2",1);
+		attribute=new Attribute("Sexo","Â¿Cual es su gÃ©nero?","2",1);
 		attribute.addOptions("NS/NC","Masculino","Femenino");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Uso","¿Para que utilizará el auto?","3",1);
+		attribute=new Attribute("Uso","Â¿Para que utilizarÃ¡ el auto?","3",1);
 		attribute.addOptions("NS/NC","Ir a trabajar","Para los fines de semana","Para vacaciones a largas distancias","Para trabajar");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("DistanciaTrabajo","¿A cuántos kilómetros se encuentra su lugar de trabajo?","3.1",2,"Uso",1);
-		attribute.addOptions("NS/NC","0 a 10 km","10 a 30 km","30 a 100 km","Más de 100 km");
+		attribute=new Attribute("DistanciaTrabajo","Â¿A cuÃ¡ntos kilÃ³metros se encuentra su lugar de trabajo?","3.1",2,"Uso",1);
+		attribute.addOptions("NS/NC","0 a 10 km","10 a 30 km","30 a 100 km","MÃ¡s de 100 km");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("RutaTrabajo","¿Viaja al trabajo por ruta o autopista?","3.2",2,"Uso",1);
-		attribute.addOptions("NS/NC","Sí","No");
+		attribute=new Attribute("RutaTrabajo","Â¿Viaja al trabajo por ruta o autopista?","3.2",2,"Uso",1);
+		attribute.addOptions("NS/NC","SÃ­","No");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("DistanciaFinesDeSemana","¿Qué distancia recorre los fines de semana?","3.1",2,"Uso",2);
-		attribute.addOptions("NS/NC","0 a 50 km","50 a 200 km","Más de 200 km");
+		attribute=new Attribute("DistanciaFinesDeSemana","Â¿Que distancia recorre los fines de semana?","3.1",2,"Uso",2);
+		attribute.addOptions("NS/NC","0 a 50 km","50 a 200 km","MÃ¡s de 200 km");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("CantVacaciones","¿Cuántas veces al año viaja?","3.1",2,"Uso",3);
-		attribute.addOptions("NS/NC","1 vez","2 veces","Más de 2 veces");
+		attribute=new Attribute("CantVacaciones","Â¿Cuantas veces al aÃ±o viaja?","3.1",2,"Uso",3);
+		attribute.addOptions("NS/NC","1 vez","2 veces","MÃ¡s de 2 veces");
 		attributeList.add(attribute);
 
-		attribute=new Attribute("KmViaje1","En promedio, ¿cuántos kilómetros realiza por cada viaje?","3.1.1",3,"CantVacaciones",1);
-		attribute.addOptions("NS/NC","100 o menos","200","300","400","500","600","700","800","900","1.000 o más");
+		attribute=new Attribute("KmViaje1","En promedio, Â¿Cuantos kilometros realiza por cada viaje?","3.1.1",3,"CantVacaciones",1);
+		attribute.addOptions("NS/NC","100 o menos","200","300","400","500","600","700","800","900","1.000 o mÃ¡s");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("KmViaje2","En promedio, ¿cuántos kilómetros realiza por cada viaje?","3.1.1",3,"CantVacaciones",2);
-		attribute.addOptions("NS/NC","100 o menos","200","300","400","500","600","700","800","900","1.000 o más");
+		attribute=new Attribute("KmViaje2","En promedio, Â¿CuÃ¡ntos kilÃ³metros realiza por cada viaje?","3.1.1",3,"CantVacaciones",2);
+		attribute.addOptions("NS/NC","100 o menos","200","300","400","500","600","700","800","900","1.000 o mÃ¡s");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("KmViaje3","En promedio, ¿Cuántos kilómetros anuales realiza?","3.1.1",3,"CantVacaciones",3);
-		attribute.addOptions("NS/NC","1.000 o menos","2.000","3.000","4.000","5.000","6.000","7.000","8.000","9.000","10.000 o más");
+		attribute=new Attribute("KmViaje3","En promedio, Â¿Cuantos kilÃ³metros anuales realiza?","3.1.1",3,"CantVacaciones",3);
+		attribute.addOptions("NS/NC","1.000 o menos","2.000","3.000","4.000","5.000","6.000","7.000","8.000","9.000","10.000 o mÃ¡s");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("DiarioTrabajo","¿Viaja diariamente por su trabajo?","3.1",2,"Uso",4);
-		attribute.addOptions("NS/NC","Sí","No");
+		attribute=new Attribute("DiarioTrabajo","Â¿Viaja diariamente por su trabajo?","3.1",2,"Uso",4);
+		attribute.addOptions("NS/NC","SÃ­","No");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("TransporteTrabajo","¿Qué debe transportar para desarrollar su actividad?","3.2",2,"Uso",4);
+		attribute=new Attribute("TransporteTrabajo","Â¿QuÃ© debe transportar para desarrollar su actividad?","3.2",2,"Uso",4);
 		attribute.addOptions("NS/NC","Personas","Carga","Nada");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("CantPasajeros","¿Hasta cuántos pasajeros transporta?","3.2.1",3,"TransporteTrabajo",1);
-		attribute.addOptions("NS/NC","1","2 a 5","6 a 8","Más de 8");
+		attribute=new Attribute("CantPasajeros","Â¿Hasta cuÃ¡ntos pasajeros transporta?","3.2.1",3,"TransporteTrabajo",1);
+		attribute.addOptions("NS/NC","1","2 a 5","6 a 8","MÃ¡s de 8");
 		attributeList.add(attribute);
 	
-		attribute=new Attribute("CantCarga","¿Cuántos kilos de carga transporta?","3.2.1",3,"TransporteTrabajo",2);
-		attribute.addOptions("NS/NC","0-500","500-1.000","1.000-1.500","1.500-2.000","2.000-2.500","2.500-3.000","Más de 3.000");
+		attribute=new Attribute("CantCarga","Â¿CuÃ¡ntos kilos de carga transporta?","3.2.1",3,"TransporteTrabajo",2);
+		attribute.addOptions("NS/NC","0-500","500-1.000","1.000-1.500","1.500-2.000","2.000-2.500","2.500-3.000","MÃ¡s de 3.000");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("RutaOAutopistaTrabajo","¿Viajará habitualmente por ruta o autopista?","3.3",2,"Uso",4);
-		attribute.addOptions("NS/NC","Sí","No");
+		attribute=new Attribute("RutaOAutopistaTrabajo","Â¿ViajarÃ¡ habitualmente por ruta o autopista?","3.3",2,"Uso",4);
+		attribute.addOptions("NS/NC","SÃ­","No");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Menores","¿Transportará habitualmente menores de edad?","4",1);
-		attribute.addOptions("NS/NC","Sí","No");
+		attribute=new Attribute("Menores","Â¿TransportarÃ¡ habitualmente menores de edad?","4",1);
+		attribute.addOptions("NS/NC","SÃ­","No");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("CantMenores","¿Cuántos menores transportará simultáneamente?","4.1",2,"Menores",1);
-		attribute.addOptions("NS/NC","1 a 3","Más de 3");
+		attribute=new Attribute("CantMenores","Â¿CuÃ¡ntos menores transportarÃ¡ simultÃ¡neamente?","4.1",2,"Menores",1);
+		attribute.addOptions("NS/NC","1 a 3","MÃ¡s de 3");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Edad","¿Qué edad tiene?","5",1);
-		attribute.addOptions("NS/NC","18 a 25 años","26 a 45 años","46 a 59 años","Más de 60 años");
+		attribute=new Attribute("Edad","Â¿QuÃ© edad tiene?","5",1);
+		attribute.addOptions("NS/NC","18 a 25 aÃ±os","26 a 45 aÃ±os","46 a 59 aÃ±os","MÃ¡s de 60 aÃ±os");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Experiencia","¿Cuántos años de experiencia de manejo tiene?","6",2);
-		attribute.addOptions("NS/NC","0 a 2 años","2 a 8 años","Más de 8 años");
+		attribute=new Attribute("Experiencia","Â¿CuÃ¡ntos aÃ±os de experiencia de manejo tiene?","6",2);
+		attribute.addOptions("NS/NC","0 a 2 aÃ±os","2 a 8 aÃ±os","MÃ¡s de 8 aÃ±os");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Combustible","¿Qué tipo de cumbustible prefiere?","7",2);
+		attribute=new Attribute("Combustible","Â¿QuÃ© tipo de cumbustible prefiere?","7",2);
 		attribute.addOptions("NS/NC","Nafta","Diesel","Indiferente");
 		attributeList.add(attribute);
 
-		attribute=new Attribute("Hibrido1","¿Está dispuesto a utilizar un vehículo híbrido?","7.1",3,"Combustible",1);
-		attribute.addOptions("NS/NC","Sí","No");
+		attribute=new Attribute("Hibrido1","Â¿EstÃ¡ dispuesto a utilizar un vehÃ­culo hÃ­brido?","7.1",3,"Combustible",1);
+		attribute.addOptions("NS/NC","SÃ­","No");
 		attributeList.add(attribute);
 
-		attribute=new Attribute("Hibrido2","¿Está dispuesto a utilizar un vehículo híbrido?","7.1",3,"Combustible",3);
-		attribute.addOptions("NS/NC","Sí","No");
+		attribute=new Attribute("Hibrido2","Â¿EstÃ¡ dispuesto a utilizar un vehÃ­culo hÃ­brido?","7.1",3,"Combustible",3);
+		attribute.addOptions("NS/NC","SÃ­","No");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Musica","¿Qué forma de escuchar música prefiere?","8",2);
-		attribute.addOptions("NS/NC","Radio","CD","MP3","No escucho música");
+		attribute=new Attribute("Musica","Â¿QuÃ© forma de escuchar mÃºsica prefiere?","8",2);
+		attribute.addOptions("NS/NC","Radio","CD","MP3","No escucho mÃºsica");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Tecnologia","Califique su relación con la tecnología","9",2);
+		attribute=new Attribute("Tecnologia","Califique su relaciÃ³n con la tecnologÃ­a","9",2);
 		attribute.addOptions("NS/NC","Muy buena","Buena","Mala","Regular");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Importante","Entre las siguientes características, ¿a cual le dá más importancia?","10",2);
+		attribute=new Attribute("Importante","Entre las siguientes caracterÃ­sticas, Â¿A cual le dÃ¡ mÃ¡s importancia?","10",2);
 		attribute.addOptions("NS/NC","Potencia del motor","Aspecto","Confort","Entretenimiento","Seguridad");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Gasto","¿Qué gastos mensuales de mantenimiento está dispuesto a afrontar como máximo?","11",2);
+		attribute=new Attribute("Gasto","Â¿QuÃ© gastos mensuales de mantenimiento estÃ¡ dispuesto a afrontar como mÃ¡ximo?","11",2);
 		attribute.addOptions("NS/NC","800","1.200","1.600","2.000","2.400","2.800","3.200","3.600","4.000","4.400","4.800","5.200","5.600","6.000");
 		attributeList.add(attribute);
 		
-		attribute=new Attribute("Noche","¿Viaja con mayor frecuencia de noche que de día?","12",3);
-		attribute.addOptions("NS/NC","Sí","No");
+		attribute=new Attribute("Noche","Â¿Viaja con mayor frecuencia de noche que de dÃ­a?","12",3);
+		attribute.addOptions("NS/NC","SÃ­","No");
 		attributeList.add(attribute);
 
-		attribute=new Attribute("Transmision","¿Qué tipo de transmisión prefiere?","13",3);
-		attribute.addOptions("NS/NC","Manual","Automática");
+		attribute=new Attribute("Transmision","Â¿QuÃ© tipo de transmisiÃ³n prefiere?","13",3);
+		attribute.addOptions("NS/NC","Manual","AutomÃ¡tica");
 		attributeList.add(attribute);
 		
 	}
