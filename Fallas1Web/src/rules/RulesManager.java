@@ -42,7 +42,7 @@ public class RulesManager {
 		ksession.insert(new Attribute("Confort",5));		
 		ksession.insert(new Attribute("Entretenimiento",5));		
 		ksession.insert(new Attribute("Potencia",5));		
-		ksession.insert(new Attribute("Diseño",4));	
+		ksession.insert(new Attribute("Design",4));	
 		ksession.insert(new Attribute("Ruta",0));	
 		ksession.insert(new Attribute("MenoresSN",0));
 		ksession.insert(new Attribute("DistanciaMes",0));
