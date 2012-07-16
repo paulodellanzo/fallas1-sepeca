@@ -48,18 +48,18 @@ public class Car {
 	private int direccion;
 	private int capacidadCarga;
 	private int transmision;
-	
-	
-	//Falta sacar los siguientes atributos
 	private int tanque;
 	private int largo;
 	private int ancho;
 	private int alto;
-	private int consumoEnRuta;
-	private int consumoEnCiudad;
 	private int potencia;
 	private int torque;
 	private int luzDeStop;
+	
+	//Falta sacar los siguientes atributos
+	private int consumoEnRuta;
+	private int consumoEnCiudad;
+
 	
 	
 	//Los siguientes atributos los completa Drools
@@ -170,7 +170,106 @@ public class Car {
 		capacidadCarga=rangoCapacidadCarga(characteristics);
 		
 		transmision=rangoTransmision(characteristics);
+		
+		tanque=rangoTanque(characteristics);
+		
+		largo=rangoLargo(characteristics);
+			
+		ancho=rangoAncho(characteristics);
+			
+		alto=rangoAlto(characteristics);
+			
+		potencia=rangoPotencia(characteristics);
+			
+		torque=rangoTorque(characteristics);
+			
+		luzDeStop=rangoBooleano(characteristics[67]);
 	}
+	
+	private int rangoTanque(String[] characteristics) {
+					int tanque = 0;
+					try {
+						tanque=Integer.parseInt(characteristics[30]);
+					} catch (NumberFormatException e) {
+						tanque=0;
+					}
+			
+					if(tanque>0 && tanque<=40){
+						return 1;
+					} else if (tanque>40 && tanque<=50) {
+						return 2;
+					} else if (tanque>50 && tanque<=65) {
+						return 3;
+					} else if (tanque>65 && tanque<=80) {
+						return 4;
+					} else if (tanque>100) {
+						return 5;
+					}
+					return 0;
+				}
+			
+				private int rangoPotencia(String[] characteristics) {
+					int potencia = 0;
+					try {
+						potencia=Integer.parseInt(characteristics[12].trim());
+					} catch (NumberFormatException e) {
+						potencia=0;
+					}
+			
+					return potencia;
+				}
+			
+				private int rangoTorque(String[] characteristics) {
+					int torque = 0;
+					try {
+						torque=Integer.parseInt(characteristics[13].trim());
+					} catch (NumberFormatException e) {
+						torque=0;
+					}
+			
+
+					return torque;
+				}
+			
+				private int rangoLargo(String[] characteristics) {
+					int largo = 0;
+					try {
+						largo=Integer.parseInt(characteristics[25].trim());
+					} catch (NumberFormatException e) {
+						largo=0;
+					}
+					return largo;
+				}
+			
+				private int rangoAncho(String[] characteristics) {
+					int ancho = 0;
+					try {
+						ancho=Integer.parseInt(characteristics[26].trim());
+					} catch (NumberFormatException e) {
+						ancho=0;
+					}
+			
+					if (ancho==0) {
+						try {
+							ancho=Integer.parseInt(characteristics[27].trim());
+						} catch (NumberFormatException e) {
+							ancho=0;
+						}
+					}
+			
+					return ancho;
+				}
+			
+				private int rangoAlto(String[] characteristics) {
+					int alto = 0;
+					try {
+						alto=Integer.parseInt(characteristics[28].trim());
+					} catch (NumberFormatException e) {
+						alto=0;
+					}
+			
+					return alto;
+				}
 	
 	private int rangoTransmision(String[] characteristics) {
 		String caja = characteristics[19].trim();

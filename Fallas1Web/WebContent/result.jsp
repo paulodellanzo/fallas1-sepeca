@@ -11,14 +11,15 @@
 	for(int i=0;i<attributeListSize;i++){
 		String parameter = attributeList.get(i).getName();
 		String value = request.getParameter(parameter);
-		Attribute attribute = new Attribute(parameter,Integer.parseInt(value));	
+		Attribute attribute = new Attribute(parameter,Double.parseDouble(value));	
 		inputAttributes.add(attribute);
 		
 	}
 	
 	RulesManager rulesManager = new RulesManager();
 	ArrayList<Car> cars = rulesManager.getBestCars(inputAttributes);
-%>
+	
+	%>
 	<ul id="slider">
 	<%
 	for (Car car:cars){

@@ -15,7 +15,7 @@ public class PruebaMain {
 		
 		System.out.println("Autos:");
 		for(Car car:cars){
-			System.out.println(car.getModelo()+" : "+car.getPotenciaDrl());
+			System.out.println(car.getModelo()+" : "+car.getPotenciaDrl()+" : "+car.getSeguridadDrl()+" : "+car.getConfortDrl()+" : "+car.getEntretenimientoDrl());
 		}
 			
 		

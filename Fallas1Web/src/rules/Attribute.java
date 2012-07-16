@@ -8,24 +8,24 @@ public class Attribute {
 	ArrayList<String> optionList = new ArrayList<String>();
 	ArrayList<Integer> valueList = new ArrayList<Integer>();
 	private String description;
-	private int value;
+	private double value;
 	private String number;
 	private int level;
 	private int fatherValue;
 	private String father = null;
 	
-	public int getValue() {
+	public double getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 
 	public Attribute(){
 	}
 	
-	public Attribute(String name,int value){
+	public Attribute(String name,double value){
 		this.name=name;
 		this.value=value;
 	}

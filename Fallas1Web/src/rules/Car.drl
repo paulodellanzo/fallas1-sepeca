@@ -81,7 +81,7 @@ rule "(3) Regla 7: Uso - Vacaciones largas distancias 2"
 		salience(500)
     when
         Attribute (name == "Uso", value == 3)
-		c: Car (tanque < 50)
+		c: Car (tanque < 3)
     then
         retract (c);
 end
@@ -603,12 +603,27 @@ rule "Seguridad"
 		Attribute (name == "Ruta", v: value)
 		Attribute (name == "MenoresSN", vm: value)
 	then
-		c.seguridadDrl = 1.7 + 0.8 * (1 - (0.5*v + 0.5*vm)) + (0.8 + (0.2*v + 0.2*vm))*c.abs + (0.9 + 0.4*v)*(c.airbagConductor/3) + 0.3*vm*c.cinturones;
-		
-		
+		c.seguridadDrl = 1.7 + 0.8 * (1 - (0.5*v + 0.5*vm)) + (0.8 + (0.2*v + 0.2*vm))*c.abs + (0.9 + 0.4*v)*(c.airbagConductor/3) + 0.3*vm*c.cinturones;	
 end
 
+rule "Confort"
+		salience(100)
+	when
+		c: Car ()
+		Attribute (name == "CajaAutomatica",v: value)
+	then
+		c.confortDrl = (0.5+v)*(c.transmision-1)+(1.2/4)*c.aireAcondicionado+0.8*c.cierrePuertas+(2.5-v)*(0.05*c.direccion+0.05*c.espejosExternos+0.05*c.vidrios+0.05*c.velocidadCrucero+0.05+0.05*c.computadoraABordo+0.05*c.sensorLluvia+0.05*c.balizaAut+0.05*c.camaraTrasera);
+end
 
+rule "Entretenimiento"
+		salience(100)
+	when
+		c: Car ()
+		Attribute (name == "Tecnologia2",v: value)
+		Attribute (name == "MP3",vm: value)
+	then
+		c.entretenimientoDrl = (v + 1/4)*(1.5*(0.95*c.equipoMusica+0.05*vm)+c.parlantes+0.5*c.bluetooth+0.5*c.gps+0.2*c.conexionAuxiliar+0.4*c.conexionUsb+0.4*c.controlPorVoz);
+end
 
 
 
