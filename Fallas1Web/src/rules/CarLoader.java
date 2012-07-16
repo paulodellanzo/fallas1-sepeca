@@ -16,7 +16,7 @@ public class CarLoader {
 		try {
 
 			
-			file=new File("C:\\Users\\Sebastián\\Documents\\base");
+			file=new File("/home/damian/workspace/Fallas1Web/src/rules/base");
 			fr=new FileReader(file);
 			reader = new BufferedReader(fr);
 			

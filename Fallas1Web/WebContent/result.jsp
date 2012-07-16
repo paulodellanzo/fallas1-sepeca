@@ -27,7 +27,7 @@
 		<li class="car"> 		
    			<div class="image">
    		<%
-   			out.println("<img src=\"carimages/"+car.getFoto()+"\">");
+   			out.println("<img class=\"carimage\" src=\"carimages/"+car.getFoto()+"\">");
    		%> 		
    			</div>
    		   	<div class="description">
@@ -41,6 +41,10 @@
    			out.println("Precio: "+Double.toString(car.getPrecio()));
    			out.println("<br/>");
    			out.println("Tipo de combustible: "+car.getCombustible());
+   			out.println("<br/>");
+   			out.println("Potencia: "+car.getPotencia()+" CV");
+   			out.println("<br/>");
+   			out.println("Calificación: "+String.format("%.4g%n", car.getAptitud()));
    		%> 	   			
    		   	</div>		
    		</li>

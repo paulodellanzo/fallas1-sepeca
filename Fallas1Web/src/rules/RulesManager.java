@@ -64,7 +64,7 @@ public class RulesManager {
 		for(Car car:cars){
 			if(car.getAptitud()>0)
 				resultCar.add(car);
-			if(resultCar.size()==20)
+			if(resultCar.size()==15)
 				break;
 		
 		}

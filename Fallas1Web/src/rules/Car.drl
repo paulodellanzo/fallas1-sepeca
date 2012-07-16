@@ -481,7 +481,7 @@ rule "(19) Regla 49: Gastos"
         Attribute (name == "Gasto", v: value > 0)
         Attribute (name == "DistanciaMes",vd: value)
         Attribute (name == "Ruta",vr: value)
-        c: Car ((precio*0.00627+(vd/100)*(consumoEnRuta*vr+consumoEnCiudad*(1-vr)) ) > (400+400*v))
+        c: Car ((precio*0.00627+(vd/100)*(consumoEnRuta*vr+consumoEnCiudad*(1.0-vr)) ) > (400.0+400.0*v))
     then
         retract(c);
 end
