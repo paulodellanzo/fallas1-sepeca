@@ -2,10 +2,10 @@ package rules;
 global java.util.List list
 dialect "mvel"
 
-rule "Prefiltrado: Autos de menos de 200000 pesos"
+rule "Prefiltrado: Autos de menos de 200000 pesos o sin precio"
 		salience(1000)
 	when
-		c: Car (precio > 200000)
+		c: Car (precio > 200000 || precio == 0)
 	then
 		retract(c);
 end
@@ -14,7 +14,7 @@ rule "(1) Regla 1: Precio"
 		salience(999)
     when
         Attribute (name == "Precio", v: value > 0)
-        c: Car (precio > (46000+14000*v) || precio == 0)
+        c: Car ((precio-46000) > 14000*v)
     then
         retract(c);
 end

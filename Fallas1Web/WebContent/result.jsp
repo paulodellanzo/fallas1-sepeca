@@ -38,7 +38,9 @@
    			out.println("<br/>");   
    			out.println("Versión: "+car.getVersion());
    			out.println("<br/>");
-   			out.println("Precio: "+Integer.toString(car.getPrecio()));
+   			out.println("Precio: "+Double.toString(car.getPrecio()));
+   			out.println("<br/>");
+   			out.println("Tipo de combustible: "+car.getCombustible());
    		%> 	   			
    		   	</div>		
    		</li>
