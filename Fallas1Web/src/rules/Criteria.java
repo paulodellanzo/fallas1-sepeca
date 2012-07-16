@@ -9,7 +9,7 @@ public class Criteria {
 	ArrayList<Attribute> attributeList = new ArrayList<Attribute>();
 	
 	public Criteria(){
-		Attribute attribute=new Attribute("Precio","¿Cuanto es el precio máximo que está dispuesto a pagar (en pesos)?","1",1);
+		Attribute attribute=new Attribute("Precio","¿Cuánto es el precio máximo que está dispuesto a pagar (en pesos)?","1",1);
 		attribute.addOptions("NS/NC","60.000","74.000","88.000","102.000","116.000","130.000","144.000","158.000","172.000","186.000","200.000");
 		attributeList.add(attribute);
 

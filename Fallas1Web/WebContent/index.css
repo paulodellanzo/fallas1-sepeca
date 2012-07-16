@@ -1,49 +1,80 @@
 html{
+	background:white;
+	width:100%;
+	min-width:700px;
 	height:100%;
-	weight:100%;
+	font: 18px arial,sans-serif;
 }
-body{
-	height:100%;
-	weight:100%;
-}
-h3{
-	text-align:center;
+
+div {
+	position:static;
+	margin:0px;
+	padding:0px;
+	font: 15px arial,sans-serif;
 }
 
 #header{
-	height:10%;	
-	weight:100%;
+	background: none repeat scroll 0 0 #F5F5F5;
+	height:100px;
+	margin-bottom:1px;
+	border-bottom: 1px solid #E5E5E5;
 }
-#body{
-	height:90%;
-	weight:100%;
-}
-#criteria{
-	height:100%;
-	width:48%;
-	float:left;
-	text-align:center;
-}
-#result{
-	height:100%;
-	width:48%;
-	float:left;
 
-}
-.attdesc{
-	width:50%;
+#lateral{
+	background: white;
 	float:left;
-	text-align:left;
+	top:50px;
+	left:0px;
+	width:48%;
+	color:#333333;
 }
-.select{
-	width:50%;
+
+#select {
+	border-right-style:solid;
+	border-bottom-style:solid;
+	border-width:1px;
+	border-color:#E0E0E0;
+	padding:5px;
+	margin-top:5px;
+	margin-right:5px;
 }
+
+#criteria {
+	border-right-style:solid;
+	border-bottom-style:solid;
+	border-width:1px;
+	border-color:#E0E0E0;
+	padding:5px;
+	margin-top:5px;
+	margin-right:5px;
+}
+
+#envio {
+	border-right-style:solid;
+	border-bottom-style:solid;
+	border-width:1px;
+	border-color:#E0E0E0;
+	padding:5px;
+	margin-top:5px;
+	margin-right:5px;
+}
+
+#result {
+	display:inline;
+	float:left;
+	padding:2px;
+}
+
 .attribute{
-	width:100%;
-	margin-bottom:2%;
-	float:left;
 }
-#submit{
+
+.attdesc{
+}
+
+.select{
+}
+
+/*#submit{
 	clear:both;
 	margin-top:15px;
 	text-align:center;
@@ -63,4 +94,4 @@ h3{
 .message{
 	margin-top:25%;
 	text-align:center;
-}
+}*/

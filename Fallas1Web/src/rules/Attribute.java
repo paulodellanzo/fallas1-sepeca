@@ -82,7 +82,7 @@ public class Attribute {
 	public String getHtml(){
 		String html = new String();
 		html=html.concat("<div class=\"attribute\" id=\""+this.getName()+"\">");
-		html=html.concat("<a class=\"attdesc\">"+this.getNumber()+") "+this.getDescription()+"</a>");
+		html=html.concat("<a class=\"attdesc\">"+this.getNumber()+") "+this.getDescription()+"</a></br>");
 		html=html.concat("<select onchange=\"changeOptions()\" class=\"select\" name=\""+this.getName()+"\">");
 		int attListSize = this.getOptionsList().size();
 		for(int j=0;j<attListSize;j++){
