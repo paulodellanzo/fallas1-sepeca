@@ -1,7 +1,7 @@
 
 function getResult(){
 	
-	result = document.getElementById('result').innerHTML ='<p class="message">Procesando consulta...</p>';
+	result = document.getElementById('result').innerHTML ='<p class="message">Procesando consulta <img src="loadingcircle.gif" align="center"></p>';
 
 	var criteria = document.getElementById('criteria').getElementsByTagName('select');
 	var parametros = "";

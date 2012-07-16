@@ -15,7 +15,7 @@
   <body>
    
    	<div id="header">
-   		<h3>Sistema Experto para elección de compra de automóvil</h1>
+   		<h3><img src="bannerfans_4666614.png" align="left"></h3>
    	</div>
    
    	<div id="body">
