@@ -1,9 +1,9 @@
 package rules;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
-	private int selected;
 	private int id;
+	private double aptitud;
 	private String marca;
 	private String modelo;
 	private String version;
@@ -76,7 +76,7 @@ public class Car {
 	
 	public Car(String[] characteristics) {
 		id=Integer.parseInt(characteristics[0].trim());
-		selected=0;
+		aptitud=0;
 		marca=characteristics[1];
 		
 		modelo=characteristics[2];
@@ -397,9 +397,9 @@ public class Car {
 	private int rangoLlantas(String[] characteristics) {
 		String llantas = characteristics[51];
 		if (llantas.matches(".*Aleaci.*")) {
-			return 5;
-		} else if (llantas.matches(".*Acero.*")) {
-			return 2;
+			return 1;
+		} else if (llantas.matches(".*Chapa.*")) {
+			return -1;
 		}
 		return 0;
 	}
@@ -453,12 +453,12 @@ public class Car {
 
 	private int rangoPalancaCambio(String[] characteristics) {
 		String palancaCambio = characteristics[57];
-		if (palancaCambio.matches(".*volante.*")) {
-			return 5;
-		} else if (palancaCambio.matches(".*aluminio.*")) {
-			return 2;
-		} else if (palancaCambio.matches(".*cuero.*")) {
+		if (palancaCambio.matches(".*evestida.*")) {
 			return 1;
+		} else if (palancaCambio.matches(".*aluminio.*")) {
+			return 0;
+		} else if (palancaCambio.matches(".*cuero.*")) {
+			return 0;
 		}
 		return 0;
 	}
@@ -479,16 +479,16 @@ public class Car {
 
 	private int rangoTapizado(String[] characteristics) {
 		String tapizado = characteristics[52];
-		if (tapizado.matches(".*Alcántara.*")) {
-			return 5;
-		} else if (tapizado.matches(".*Cuero.*")) {
-			return 4;
-		} else if (tapizado.matches(".*Gamuza.*") || tapizado.matches(".*Pana.*")) {
-			return 3;
-		} else if (tapizado.matches(".*Cuerina.*") || tapizado.matches(".*Simil cuero.*")) {
-			return 2;
-		} else if (tapizado.matches(".*deportivo.*")) {
+		if (tapizado.matches(".*ntara.*")) {
 			return 1;
+		} else if (tapizado.matches(".*Cuero.*")) {
+			return 1;
+		} else if (tapizado.matches(".*Gamuza.*") || tapizado.matches(".*Pana.*")) {
+			return 0;
+		} else if (tapizado.matches(".*Cuerina.*") || tapizado.matches(".*Simil cuero.*")) {
+			return 0;
+		} else if (tapizado.matches(".*deportivo.*")) {
+			return 0;
 		}
 		return 0;
 	}
@@ -971,12 +971,12 @@ public class Car {
 		this.transmision = transmision;
 	}
 	
-	public int getSelected() {
-		return selected;
+	public double getAptitud() {
+		return aptitud;
 	}
 
-	public void setSelected(int selected) {
-		this.selected = selected;
+	public void setAptitud(double aptitud) {
+		this.aptitud = aptitud;
 	}
 
 	public int getTanque() {
@@ -1096,6 +1096,15 @@ public class Car {
 
 	public void setRangoMarca(int rangoMarca) {
 		this.rangoMarca = rangoMarca;
+	}
+
+
+	public int compareTo(Car o) {
+		if(this.getAptitud()>o.getAptitud())
+			return -1;
+		if(this.getAptitud()<o.getAptitud())
+			return 1;
+		return 0;
 	}
 
 

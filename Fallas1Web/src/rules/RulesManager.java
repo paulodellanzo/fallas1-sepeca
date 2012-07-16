@@ -2,6 +2,7 @@ package rules;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
@@ -58,10 +59,15 @@ public class RulesManager {
 		ksession.dispose();
 		
 		ArrayList<Car> resultCar = new ArrayList<Car>();
-		for(Car car:cars)
-			if(car.getSelected()==1)
-				resultCar.add(car);
+		Collections.sort(cars);
 		
+		for(Car car:cars){
+			if(car.getAptitud()>0)
+				resultCar.add(car);
+			if(resultCar.size()==20)
+				break;
+		
+		}
 		return resultCar;
 		
 	}

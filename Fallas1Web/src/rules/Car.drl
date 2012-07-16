@@ -625,11 +625,24 @@ rule "Entretenimiento"
 		c.entretenimientoDrl = (v + 1/4)*(1.5*(0.95*c.equipoMusica+0.05*vm)+c.parlantes+0.5*c.bluetooth+0.5*c.gps+0.2*c.conexionAuxiliar+0.4*c.conexionUsb+0.4*c.controlPorVoz);
 end
 
-
-
-rule "Selección"
+rule "Design"
+		salience(100)
 	when
 		c: Car ()
 	then
-		c.selected = 1;
+		c.designDrl = c.rangoMarca +0.2*c.tapizado +0.2*c.llantas + 0.2*c.palancaCambio;
+end
+
+
+rule "Aptitud"
+		salience(50)
+	when
+		c: Car ()
+		Attribute (name == "Potencia",v1: value)
+		Attribute (name == "Seguridad",v2: value)
+		Attribute (name == "Confort",v3: value)
+		Attribute (name == "Entretenimiento",v4: value)
+		Attribute (name == "Diseño",v5: value)
+	then
+		c.aptitud = v1*c.potenciaDrl+v2*c.seguridadDrl+v3*c.confortDrl+v4*c.entretenimientoDrl+v5*c.designDrl;
 end
