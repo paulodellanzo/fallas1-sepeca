@@ -201,7 +201,7 @@ rule "(7) Regla 18: Viaje al trabajo por ruta o autopista - S�"
         at1.value = 1;
 end
 
-rule "(7) Regla 19: Viaje al trabajo por ruto o autopista - No"
+rule "(7) Regla 19: Viaje al trabajo por ruta o autopista - No"
 		salience(500)
     when
         Attribute (name == "RutaTrabajo", value == 2)
@@ -295,7 +295,7 @@ rule "(11) Regla 29: Transporta por trabajo - Carga 2"
 		salience(500)
     when
         Attribute (name == "TransporteTrabajo", value == 2)
-		c: Car (ancho <= 1850 || largo <= 4600 || alto <= 1700 || capacidadCarga <= 600)
+		c: Car (capacidadCarga <= 600)
     then
         retract (c);
 end
@@ -333,7 +333,7 @@ rule "(13) Regla 33: Transporte de menores - 1 a 3 2"
 		salience(500)
     when
         Attribute (name == "CantMenores", value == 1)
-		c: Car (largo <= 4250)
+		c: Car (cantAsientos < 5)
     then
         retract (c);
 end
@@ -351,7 +351,7 @@ rule "(13) Regla 35: Transporte de menores - M�s de 4 2"
 		salience(500)
     when
         Attribute (name == "CantMenores", value == 2)
-		c: Car (largo <= 4250)
+		c: Car (cantAsientos < 8)
     then
         retract (c);
 end
