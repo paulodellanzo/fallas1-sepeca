@@ -96,3 +96,9 @@ div {
 	margin-top:25%;
 	text-align:center;
 }
+
+select {
+	background: transparent;
+	font-size: 12px;
+	border: 1px solid #999999;
+}
