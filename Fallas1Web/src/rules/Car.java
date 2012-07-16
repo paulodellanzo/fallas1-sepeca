@@ -7,7 +7,7 @@ public class Car implements Comparable<Car> {
 	private String marca;
 	private String modelo;
 	private String version;
-	private int precio;
+	private double precio;
 	private String foto;
 	private int farosDelanteros;
 	private int farosAntiniebla;
@@ -667,11 +667,11 @@ public class Car implements Comparable<Car> {
 		this.version = version;
 	}
 
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(int precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 

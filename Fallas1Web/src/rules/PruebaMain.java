@@ -6,9 +6,10 @@ public class PruebaMain {
 
 
 	public static void main(String[] args) {
-		Attribute attribute = new Attribute("Sexo",2);
 		ArrayList<Attribute> attributes = new ArrayList<Attribute>();
-		attributes.add(attribute);
+		attributes.add(new Attribute("Uso",3));
+		attributes.add(new Attribute("Combustible",1));
+		attributes.add(new Attribute("Precio",5));
 		
 		RulesManager rulesManager = new RulesManager();
 		ArrayList<Car> cars = rulesManager.getBestCars(attributes);
