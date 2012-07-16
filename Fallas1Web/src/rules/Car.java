@@ -55,6 +55,7 @@ public class Car {
 	private int potencia;
 	private int torque;
 	private int luzDeStop;
+	private int rangoMarca;
 	
 	//Falta sacar los siguientes atributos
 	private int consumoEnRuta;
@@ -184,8 +185,21 @@ public class Car {
 		torque=rangoTorque(characteristics);
 			
 		luzDeStop=rangoBooleano(characteristics[67]);
+		
+		rangoMarca=rangoMarca(characteristics[1]);
 	}
 	
+	private int rangoMarca(String marca) {
+		if(marca.matches(".*Audi.*") || marca.matches(".*Mercedes.*"))
+			return 4;
+		if(marca.matches(".Volkswagen.*") || marca.matches(".*Renault.*") || marca.matches(".*Peugeot.*") || marca.matches(".*Suzuki.*"))
+			return 2;
+		if(marca.matches(".*Fiat.*") || marca.matches(".*Ford.*"))
+			return 1;
+		
+		return 3;
+	}
+
 	private int rangoTanque(String[] characteristics) {
 					int tanque = 0;
 					try {
@@ -1074,6 +1088,14 @@ public class Car {
 
 	public void setLuzDeStop(int luzDeStop) {
 		this.luzDeStop = luzDeStop;
+	}
+
+	public int getRangoMarca() {
+		return rangoMarca;
+	}
+
+	public void setRangoMarca(int rangoMarca) {
+		this.rangoMarca = rangoMarca;
 	}
 
 
